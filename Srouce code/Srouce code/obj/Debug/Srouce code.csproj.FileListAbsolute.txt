@@ -1,0 +1,9 @@
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\bin\Debug\Srouce code.exe.config
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\bin\Debug\Srouce code.exe
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\bin\Debug\Srouce code.pdb
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.AssemblyReference.cache
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.Properties.Resources.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.GenerateResource.cache
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.CoreCompileInputs.cache
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.exe
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.pdb
