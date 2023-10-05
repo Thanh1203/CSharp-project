@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Đăng nhập.cs">
       <SubType>Form</SubType>
     </Compile>
