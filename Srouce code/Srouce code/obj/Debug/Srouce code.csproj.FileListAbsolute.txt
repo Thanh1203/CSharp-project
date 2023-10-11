@@ -7,3 +7,17 @@ D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce cod
 D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.CoreCompileInputs.cache
 D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.exe
 D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.pdb
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\bin\Debug\Srouce code.exe.config
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\bin\Debug\Srouce code.exe
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\bin\Debug\Srouce code.pdb
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.AssemblyReference.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.SuggestedBindingRedirects.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.Properties.Resources.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.HomePage.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.DangNhap.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.GenerateResource.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.CoreCompileInputs.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.exe
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.pdb
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.CopyComplete
