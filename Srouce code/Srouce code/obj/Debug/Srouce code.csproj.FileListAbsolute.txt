@@ -21,3 +21,7 @@ C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\
 C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.pdb
 C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.CopyComplete
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.QuanLyKhachHang.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.NhapHang.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.XuatHang.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.ThongTinSanPham.resources

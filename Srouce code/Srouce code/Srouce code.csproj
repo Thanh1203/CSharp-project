@@ -59,6 +59,30 @@
     <Compile Include="View\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NhapHang.Designer.cs">
+      <DependentUpon>NhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuanLyKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLyKhachHang.Designer.cs">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThongTinSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ThongTinSanPham.Designer.cs">
+      <DependentUpon>ThongTinSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\XuatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\XuatHang.Designer.cs">
+      <DependentUpon>XuatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Đăng nhập.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +102,18 @@
     </Compile>
     <EmbeddedResource Include="View\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NhapHang.resx">
+      <DependentUpon>NhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLyKhachHang.resx">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ThongTinSanPham.resx">
+      <DependentUpon>ThongTinSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\XuatHang.resx">
+      <DependentUpon>XuatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Đăng nhập.resx">
       <DependentUpon>Đăng nhập.cs</DependentUpon>
