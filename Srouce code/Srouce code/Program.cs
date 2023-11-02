@@ -17,7 +17,7 @@ namespace Srouce_code
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ThongTinSanPham());
+            Application.Run(new DangNhap());
         }
     }
 }

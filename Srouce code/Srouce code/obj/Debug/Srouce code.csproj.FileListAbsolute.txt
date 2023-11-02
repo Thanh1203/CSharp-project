@@ -25,3 +25,13 @@ C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\
 C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.NhapHang.resources
 C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.XuatHang.resources
 C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.ThongTinSanPham.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\bin\Debug\FontAwesome.Sharp.dll
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\bin\Debug\Newtonsoft.Json.dll
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\bin\Debug\Newtonsoft.Json.xml
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.HomePage.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.NhapHang.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.QuanLyKhachHang.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.ThongTinSanPham.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.View.XuatHang.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce_code.DangNhap.resources
+D:\My workspace data\CSharp-project\Srouce code\Srouce code\obj\Debug\Srouce code.csproj.CopyComplete

@@ -142,7 +142,7 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.Location = new System.Drawing.Point(12, 309);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 46);
+            this.button1.Size = new System.Drawing.Size(115, 46);
             this.button1.TabIndex = 9;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = false;
@@ -154,9 +154,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.Location = new System.Drawing.Point(144, 309);
+            this.button2.Location = new System.Drawing.Point(180, 309);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 46);
+            this.button2.Size = new System.Drawing.Size(115, 46);
             this.button2.TabIndex = 10;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = false;
@@ -168,21 +168,21 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Location = new System.Drawing.Point(270, 309);
+            this.button3.Location = new System.Drawing.Point(363, 309);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 46);
+            this.button3.Size = new System.Drawing.Size(115, 46);
             this.button3.TabIndex = 11;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.Gold;
+            this.button5.BackColor = System.Drawing.Color.Red;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button5.Location = new System.Drawing.Point(535, 309);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(12, 396);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(118, 46);
             this.button5.TabIndex = 13;
@@ -192,11 +192,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 370);
+            this.dataGridView1.Location = new System.Drawing.Point(622, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(646, 235);
+            this.dataGridView1.Size = new System.Drawing.Size(895, 530);
             this.dataGridView1.TabIndex = 14;
             // 
             // button4
@@ -207,7 +207,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.Location = new System.Drawing.Point(397, 309);
+            this.button4.Location = new System.Drawing.Point(180, 396);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(115, 46);
             this.button4.TabIndex = 15;
@@ -219,7 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(670, 617);
+            this.ClientSize = new System.Drawing.Size(1529, 617);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button5);
