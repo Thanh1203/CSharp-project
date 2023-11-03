@@ -115,11 +115,57 @@ namespace Srouce_code.View
         }
         private void Btn_Sreach_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text))
+            if (IsAnyField())
             {
+                bool checkFieldBefore = false;
+                string strQuery = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct from ProductsInfomation where";
                 cmd = conn.CreateCommand();
-                cmd.CommandText = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct from ProductsInfomation where IdProduct = @IdProduct";
-                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
+                if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text.Trim()))
+                {
+                    strQuery += " IdProduct = @IdProduct";
+                    checkFieldBefore = true;
+                    cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
+                }
+                if(!string.IsNullOrWhiteSpace(Txt_NameProduct.Text))
+                {
+                    if (checkFieldBefore)
+                    {
+                        strQuery += " and NameProduct = @NameProduct";
+                    }
+                    else
+                    {
+                        strQuery += " NameProduct like @NameProduct";
+                        checkFieldBefore = true;
+                    }
+                    cmd.Parameters.AddWithValue("@NameProduct", "%" + Txt_NameProduct.Text + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(Txt_KindOfProduct.Text))
+                {
+                    if (checkFieldBefore)
+                    {
+                        strQuery += " and KindOfProduct = @KindOfProduct";
+                    }
+                    else
+                    {
+                        strQuery += " KindOfProduct = @KindOfProduct";
+                        checkFieldBefore = true;
+                    }
+                    cmd.Parameters.AddWithValue("@KindOfProduct", "%" + Txt_KindOfProduct.Text + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(Txt_ColorOfProduct.Text))
+                {
+                    if (checkFieldBefore)
+                    {
+                        strQuery += " and ColorOfProduct = @ColorOfProduct";
+                    }
+                    else
+                    {
+                        strQuery += " ColorOfProduct = @ColorOfProduct";
+                        checkFieldBefore = true;
+                    }
+                    cmd.Parameters.AddWithValue("@ColorOfProduct", "%" + Txt_ColorOfProduct.Text + "%");
+                }
+                cmd.CommandText = strQuery;
                 adapter.SelectCommand = cmd;
                 table.Clear();
                 adapter.Fill(table);
@@ -148,7 +194,17 @@ namespace Srouce_code.View
             DGV_Product_Information.DataSource = table;
         }
 
-
+        public bool IsAnyField()
+        {
+            foreach (Control control in Controls)
+            {
+                if(control is TextBox textBox && !string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
 
