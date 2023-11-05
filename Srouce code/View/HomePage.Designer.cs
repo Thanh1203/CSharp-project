@@ -38,8 +38,8 @@
             this.lbBirth = new System.Windows.Forms.Label();
             this.lbAddress = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Btn_Receipt = new System.Windows.Forms.Button();
+            this.Btn_Release = new System.Windows.Forms.Button();
             this.Btn_goInformationProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -150,6 +150,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.iconPictureBox1);
             this.groupBox1.Controls.Add(this.lbAddress);
@@ -168,32 +170,37 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // Btn_Receipt
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(604, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 38);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Nhập Kho";
-            this.button1.UseVisualStyleBackColor = false;
+            this.Btn_Receipt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Btn_Receipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Btn_Receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Receipt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_Receipt.Location = new System.Drawing.Point(453, 68);
+            this.Btn_Receipt.Name = "Btn_Receipt";
+            this.Btn_Receipt.Size = new System.Drawing.Size(117, 38);
+            this.Btn_Receipt.TabIndex = 10;
+            this.Btn_Receipt.Text = "Nhập Kho";
+            this.Btn_Receipt.UseVisualStyleBackColor = false;
+            this.Btn_Receipt.Click += new System.EventHandler(this.Btn_Receipt_Click);
             // 
-            // button2
+            // Btn_Release
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(453, 68);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 38);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Xuất Hàng";
-            this.button2.UseVisualStyleBackColor = false;
+            this.Btn_Release.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Btn_Release.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Btn_Release.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Release.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_Release.Location = new System.Drawing.Point(604, 68);
+            this.Btn_Release.Name = "Btn_Release";
+            this.Btn_Release.Size = new System.Drawing.Size(117, 38);
+            this.Btn_Release.TabIndex = 11;
+            this.Btn_Release.Text = "Xuất Hàng";
+            this.Btn_Release.UseVisualStyleBackColor = false;
+            this.Btn_Release.Click += new System.EventHandler(this.Btn_Release_Click);
             // 
             // Btn_goInformationProduct
             // 
+            this.Btn_goInformationProduct.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Btn_goInformationProduct.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_goInformationProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_goInformationProduct.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -211,11 +218,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 461);
             this.Controls.Add(this.Btn_goInformationProduct);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Btn_Release);
+            this.Controls.Add(this.Btn_Receipt);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "HomePage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomePage";
             this.Load += new System.EventHandler(this.HomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
@@ -237,8 +246,8 @@
         private System.Windows.Forms.Label lbBirth;
         private System.Windows.Forms.Label lbAddress;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Btn_Receipt;
+        private System.Windows.Forms.Button Btn_Release;
         private System.Windows.Forms.Button Btn_goInformationProduct;
     }
 }

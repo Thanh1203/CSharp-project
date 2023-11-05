@@ -12,6 +12,7 @@ namespace Srouce_code
         private static readonly DbConnecting DbConnect = new DbConnecting();
         private SqlConnection conn;
         private SqlCommand cmd;
+        private SqlDataReader reader;
         public DangNhap()
         {
             InitializeComponent();
@@ -30,14 +31,14 @@ namespace Srouce_code
             cmd.CommandText = "select * from AccountsAdmin where CAST(AdUsername AS nvarchar(max))=@Username and CAST(AdPassword AS nvarchar(max))=@Password";
             cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
             cmd.Parameters.AddWithValue ("@Password", txtPassword.Text);
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            using (reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
                 {
                     AdminInfor.AdminID = reader.GetInt32(reader.GetOrdinal("AdminId"));
-                    this.Hide();
                     HomePage homepage = new HomePage();
                     homepage.Show();
+                    this.Hide();
                 } else
                 {
                     MessageBox.Show("Dang nhap that bai!");

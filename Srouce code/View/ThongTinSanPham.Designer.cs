@@ -44,27 +44,30 @@
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.Btn_Sreach = new System.Windows.Forms.Button();
             this.Btn_Reload = new System.Windows.Forms.Button();
+            this.txt_Price = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Product_Information)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(75, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(16, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(294, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN SẢN PHẨM";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(21, 56);
+            this.label2.Location = new System.Drawing.Point(20, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 25);
@@ -76,7 +79,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(21, 107);
+            this.label3.Location = new System.Drawing.Point(20, 128);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 25);
@@ -88,7 +91,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(21, 156);
+            this.label4.Location = new System.Drawing.Point(20, 206);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 25);
@@ -100,7 +103,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(21, 207);
+            this.label5.Location = new System.Drawing.Point(20, 284);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 25);
@@ -110,7 +113,7 @@
             // Txt_IdProduct
             // 
             this.Txt_IdProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_IdProduct.Location = new System.Drawing.Point(179, 54);
+            this.Txt_IdProduct.Location = new System.Drawing.Point(20, 87);
             this.Txt_IdProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_IdProduct.Name = "Txt_IdProduct";
             this.Txt_IdProduct.Size = new System.Drawing.Size(245, 29);
@@ -119,7 +122,7 @@
             // Txt_NameProduct
             // 
             this.Txt_NameProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_NameProduct.Location = new System.Drawing.Point(179, 101);
+            this.Txt_NameProduct.Location = new System.Drawing.Point(20, 165);
             this.Txt_NameProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_NameProduct.Name = "Txt_NameProduct";
             this.Txt_NameProduct.Size = new System.Drawing.Size(245, 29);
@@ -128,7 +131,7 @@
             // Txt_KindOfProduct
             // 
             this.Txt_KindOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_KindOfProduct.Location = new System.Drawing.Point(179, 154);
+            this.Txt_KindOfProduct.Location = new System.Drawing.Point(20, 243);
             this.Txt_KindOfProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_KindOfProduct.Name = "Txt_KindOfProduct";
             this.Txt_KindOfProduct.Size = new System.Drawing.Size(245, 29);
@@ -137,7 +140,7 @@
             // Txt_ColorOfProduct
             // 
             this.Txt_ColorOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_ColorOfProduct.Location = new System.Drawing.Point(179, 205);
+            this.Txt_ColorOfProduct.Location = new System.Drawing.Point(20, 321);
             this.Txt_ColorOfProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_ColorOfProduct.Name = "Txt_ColorOfProduct";
             this.Txt_ColorOfProduct.Size = new System.Drawing.Size(245, 29);
@@ -145,12 +148,13 @@
             // 
             // Btn_out
             // 
+            this.Btn_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_out.BackColor = System.Drawing.Color.Red;
             this.Btn_out.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_out.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_out.ForeColor = System.Drawing.Color.White;
-            this.Btn_out.Location = new System.Drawing.Point(21, 413);
+            this.Btn_out.Location = new System.Drawing.Point(20, 616);
             this.Btn_out.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_out.Name = "Btn_out";
             this.Btn_out.Size = new System.Drawing.Size(116, 34);
@@ -161,14 +165,17 @@
             // 
             // DGV_Product_Information
             // 
+            this.DGV_Product_Information.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Product_Information.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGV_Product_Information.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Product_Information.Location = new System.Drawing.Point(429, 54);
+            this.DGV_Product_Information.Location = new System.Drawing.Point(359, 56);
             this.DGV_Product_Information.Margin = new System.Windows.Forms.Padding(2);
             this.DGV_Product_Information.Name = "DGV_Product_Information";
             this.DGV_Product_Information.RowHeadersWidth = 62;
             this.DGV_Product_Information.RowTemplate.Height = 28;
-            this.DGV_Product_Information.Size = new System.Drawing.Size(1000, 350);
+            this.DGV_Product_Information.Size = new System.Drawing.Size(1014, 594);
             this.DGV_Product_Information.TabIndex = 14;
             // 
             // Btn_Insert
@@ -178,7 +185,7 @@
             this.Btn_Insert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Insert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Insert.ForeColor = System.Drawing.Color.White;
-            this.Btn_Insert.Location = new System.Drawing.Point(21, 273);
+            this.Btn_Insert.Location = new System.Drawing.Point(20, 449);
             this.Btn_Insert.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Insert.Name = "Btn_Insert";
             this.Btn_Insert.Size = new System.Drawing.Size(116, 34);
@@ -194,7 +201,7 @@
             this.Btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_update.ForeColor = System.Drawing.Color.White;
-            this.Btn_update.Location = new System.Drawing.Point(155, 273);
+            this.Btn_update.Location = new System.Drawing.Point(149, 449);
             this.Btn_update.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_update.Name = "Btn_update";
             this.Btn_update.Size = new System.Drawing.Size(116, 34);
@@ -210,7 +217,7 @@
             this.Btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Delete.ForeColor = System.Drawing.Color.White;
-            this.Btn_Delete.Location = new System.Drawing.Point(290, 273);
+            this.Btn_Delete.Location = new System.Drawing.Point(20, 495);
             this.Btn_Delete.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Delete.Name = "Btn_Delete";
             this.Btn_Delete.Size = new System.Drawing.Size(116, 34);
@@ -226,7 +233,7 @@
             this.Btn_Sreach.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Sreach.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Sreach.ForeColor = System.Drawing.Color.White;
-            this.Btn_Sreach.Location = new System.Drawing.Point(21, 334);
+            this.Btn_Sreach.Location = new System.Drawing.Point(149, 495);
             this.Btn_Sreach.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Sreach.Name = "Btn_Sreach";
             this.Btn_Sreach.Size = new System.Drawing.Size(116, 34);
@@ -237,12 +244,12 @@
             // 
             // Btn_Reload
             // 
-            this.Btn_Reload.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.Btn_Reload.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_Reload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Reload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Reload.ForeColor = System.Drawing.Color.White;
-            this.Btn_Reload.Location = new System.Drawing.Point(155, 334);
+            this.Btn_Reload.Location = new System.Drawing.Point(20, 541);
             this.Btn_Reload.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Reload.Name = "Btn_Reload";
             this.Btn_Reload.Size = new System.Drawing.Size(116, 34);
@@ -251,12 +258,35 @@
             this.Btn_Reload.UseVisualStyleBackColor = false;
             this.Btn_Reload.Click += new System.EventHandler(this.Btn_Reload_Click);
             // 
+            // txt_Price
+            // 
+            this.txt_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Price.Location = new System.Drawing.Point(20, 399);
+            this.txt_Price.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Price.Name = "txt_Price";
+            this.txt_Price.Size = new System.Drawing.Size(245, 29);
+            this.txt_Price.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label6.Location = new System.Drawing.Point(20, 362);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 25);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Đơn giá";
+            // 
             // ThongTinSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1440, 469);
+            this.ClientSize = new System.Drawing.Size(1384, 661);
+            this.Controls.Add(this.txt_Price);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Btn_Reload);
             this.Controls.Add(this.Btn_Sreach);
             this.Controls.Add(this.Btn_Delete);
@@ -275,7 +305,9 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ThongTinSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThongTinSanPham";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ThongTinSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Product_Information)).EndInit();
             this.ResumeLayout(false);
@@ -301,5 +333,7 @@
         private System.Windows.Forms.Button Btn_Delete;
         private System.Windows.Forms.Button Btn_Sreach;
         private System.Windows.Forms.Button Btn_Reload;
+        private System.Windows.Forms.TextBox txt_Price;
+        private System.Windows.Forms.Label label6;
     }
 }

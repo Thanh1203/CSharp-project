@@ -12,6 +12,7 @@ namespace Srouce_code.View
         private static readonly DbConnecting DbConnect = new DbConnecting();
         private SqlConnection conn;
         private SqlCommand cmd;
+        private SqlDataReader reader;
 
         public HomePage()
         {
@@ -25,7 +26,7 @@ namespace Srouce_code.View
             cmd = conn.CreateCommand();
             cmd.CommandText = "select * from AdminsInformation where AdminId = @AdminId";
             cmd.Parameters.AddWithValue("@AdminId", AdminInfor.AdminID);
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            using (reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
                 {
@@ -45,6 +46,20 @@ namespace Srouce_code.View
             ThongTinSanPham ttsp = new ThongTinSanPham();
             ttsp.Show();
 
+        }
+
+        private void Btn_Receipt_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            NhapHang nhapHang = new NhapHang();
+            nhapHang.Show();
+        }
+
+        private void Btn_Release_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            XuatHang xuatHang = new XuatHang();
+            xuatHang.Show();
         }
     }
 }

@@ -62,13 +62,14 @@ namespace Srouce_code.View
 
         private void Btn_Insert_Click(object sender, EventArgs e)
         {
-            if (Txt_NameProduct.Text != null && Txt_KindOfProduct != null && Txt_ColorOfProduct != null)
+            if (!string.IsNullOrWhiteSpace(txt_Price.Text) && !string.IsNullOrWhiteSpace(Txt_KindOfProduct.Text) && !string.IsNullOrWhiteSpace(Txt_ColorOfProduct.Text))
             {
                 cmd = conn.CreateCommand();
-                cmd.CommandText = "insert into ProductsInfomation (NameProduct, KindOfProduct, ColorOfProduct, ColorOfProduct) VALUES (@NameProduct, @KindOfProduct, @ColorOfProduct, 0)";
+                cmd.CommandText = "insert into ProductsInfomation (NameProduct, KindOfProduct, ColorOfProduct, VolumeOfProduct, ProductPrice) VALUES (@NameProduct, @KindOfProduct, @ColorOfProduct, 0, @ProductPrice)";
                 cmd.Parameters.AddWithValue("@NameProduct", Txt_NameProduct.Text);
                 cmd.Parameters.AddWithValue("@KindOfProduct", Txt_KindOfProduct.Text);
                 cmd.Parameters.AddWithValue("@ColorOfProduct", Txt_ColorOfProduct.Text);
+                cmd.Parameters.AddWithValue("@ProductPrice", double.Parse(txt_Price.Text));
                 cmd.ExecuteNonQuery();
                 LoadData();
 
@@ -77,17 +78,19 @@ namespace Srouce_code.View
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
             }
         }
+
         private void Btn_update_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text))
             {
-                using(SqlCommand cmd = new SqlCommand("UpdateProduct", conn))
+                using(cmd = new SqlCommand("UpdateProduct", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
                     cmd.Parameters.AddWithValue("@NameProduct", Txt_NameProduct.Text);
                     cmd.Parameters.AddWithValue("@KindOfProduct", Txt_KindOfProduct.Text);
                     cmd.Parameters.AddWithValue("@ColorOfProduct", Txt_ColorOfProduct.Text);
+                    cmd.Parameters.AddWithValue("@ProductPrice", double.Parse(txt_Price.Text.Trim()));
                     cmd.ExecuteNonQuery();
                     LoadData();
                 }
@@ -98,6 +101,7 @@ namespace Srouce_code.View
             }
 
         }
+
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text))
@@ -113,12 +117,13 @@ namespace Srouce_code.View
                 MessageBox.Show("Vui lòng điền mã sản phẩm");
             }
         }
+
         private void Btn_Sreach_Click(object sender, EventArgs e)
         {
             if (IsAnyField())
             {
                 bool checkFieldBefore = false;
-                string strQuery = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct from ProductsInfomation where";
+                string strQuery = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, ProductPrice from ProductsInfomation where";
                 cmd = conn.CreateCommand();
                 if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text.Trim()))
                 {
@@ -165,6 +170,18 @@ namespace Srouce_code.View
                     }
                     cmd.Parameters.AddWithValue("@ColorOfProduct", "%" + Txt_ColorOfProduct.Text + "%");
                 }
+                if (!string.IsNullOrWhiteSpace(txt_Price.Text.Trim()))
+                {
+                    if (checkFieldBefore)
+                    {
+                        strQuery += " and ProductPrice = @ProductPrice";
+                    }
+                    else
+                    {
+                        strQuery += " ProductPrice = @ProductPrice";
+                    }
+                    cmd.Parameters.AddWithValue("@ProductPrice", "%" + double.Parse(txt_Price.Text.Trim()) + "%");
+                }
                 cmd.CommandText = strQuery;
                 adapter.SelectCommand = cmd;
                 table.Clear();
@@ -176,6 +193,7 @@ namespace Srouce_code.View
                 MessageBox.Show("Vui lòng điền mã sản phẩm");
             }
         }
+
         private void Btn_Reload_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -184,10 +202,11 @@ namespace Srouce_code.View
             Txt_KindOfProduct.Text = string.Empty;
             Txt_ColorOfProduct.Text = string.Empty;
         }
+
         public void LoadData()
         {
             cmd = conn.CreateCommand();
-            cmd.CommandText = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct from ProductsInfomation";
+            cmd.CommandText = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, ProductPrice from ProductsInfomation";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
