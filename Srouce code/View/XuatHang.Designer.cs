@@ -37,8 +37,8 @@
             this.dtp_DayOut = new System.Windows.Forms.DateTimePicker();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.BtnXuatHang = new System.Windows.Forms.Button();
-            this.txtKhoiLuong = new System.Windows.Forms.TextBox();
-            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.TxtKhoiLuong = new System.Windows.Forms.TextBox();
+            this.BtnLamMoi = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -87,8 +87,8 @@
             this.groupBox1.Controls.Add(this.dtp_DayOut);
             this.groupBox1.Controls.Add(this.txtMaSP);
             this.groupBox1.Controls.Add(this.BtnXuatHang);
-            this.groupBox1.Controls.Add(this.txtKhoiLuong);
-            this.groupBox1.Controls.Add(this.btnLamMoi);
+            this.groupBox1.Controls.Add(this.TxtKhoiLuong);
+            this.groupBox1.Controls.Add(this.BtnLamMoi);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label4);
@@ -185,31 +185,31 @@
             this.BtnXuatHang.UseVisualStyleBackColor = false;
             this.BtnXuatHang.Click += new System.EventHandler(this.BtnXuatHang_Click);
             // 
-            // txtKhoiLuong
+            // TxtKhoiLuong
             // 
-            this.txtKhoiLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKhoiLuong.Location = new System.Drawing.Point(191, 225);
-            this.txtKhoiLuong.Margin = new System.Windows.Forms.Padding(2);
-            this.txtKhoiLuong.Name = "txtKhoiLuong";
-            this.txtKhoiLuong.Size = new System.Drawing.Size(272, 29);
-            this.txtKhoiLuong.TabIndex = 16;
-            this.txtKhoiLuong.TextChanged += new System.EventHandler(this.txtKhoiLuong_TextChanged);
+            this.TxtKhoiLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtKhoiLuong.Location = new System.Drawing.Point(191, 225);
+            this.TxtKhoiLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtKhoiLuong.Name = "TxtKhoiLuong";
+            this.TxtKhoiLuong.Size = new System.Drawing.Size(272, 29);
+            this.TxtKhoiLuong.TabIndex = 16;
+            this.TxtKhoiLuong.TextChanged += new System.EventHandler(this.TxtKhoiLuong_TextChanged);
             // 
-            // btnLamMoi
+            // BtnLamMoi
             // 
-            this.btnLamMoi.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnLamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Location = new System.Drawing.Point(615, 294);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(144, 35);
-            this.btnLamMoi.TabIndex = 3;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            this.BtnLamMoi.BackColor = System.Drawing.Color.LightSlateGray;
+            this.BtnLamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLamMoi.ForeColor = System.Drawing.Color.White;
+            this.BtnLamMoi.Location = new System.Drawing.Point(615, 294);
+            this.BtnLamMoi.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnLamMoi.Name = "BtnLamMoi";
+            this.BtnLamMoi.Size = new System.Drawing.Size(144, 35);
+            this.BtnLamMoi.TabIndex = 3;
+            this.BtnLamMoi.Text = "Làm mới";
+            this.BtnLamMoi.UseVisualStyleBackColor = false;
+            this.BtnLamMoi.Click += new System.EventHandler(this.BtnLamMoi_Click);
             // 
             // label10
             // 
@@ -506,9 +506,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtKhoiLuong;
+        private System.Windows.Forms.TextBox TxtKhoiLuong;
         private System.Windows.Forms.TextBox txtMaSP;
-        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Button BtnLamMoi;
         private System.Windows.Forms.Button BtnXuatHang;
         private System.Windows.Forms.Button Btn_out;
         private System.Windows.Forms.Button Btn_Print_Bill;

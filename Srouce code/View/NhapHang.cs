@@ -17,7 +17,7 @@ namespace Srouce_code.View
         private SqlConnection conn;
         private SqlCommand cmd;
         private readonly SqlDataAdapter adapter = new SqlDataAdapter();
-        private readonly DataTable table_Receipt = new DataTable();
+        private readonly DataTable table = new DataTable();
         private readonly System.Timers.Timer timer;
         private SqlDataReader reader;
         public NhapHang()
@@ -86,14 +86,14 @@ namespace Srouce_code.View
             homePage.Show();
         }
 
-        public void LoadData()
+        private void LoadData()
         {
             cmd = conn.CreateCommand();
             cmd.CommandText = "select * from Receipt";
             adapter.SelectCommand = cmd;
-            table_Receipt.Clear();
-            adapter.Fill(table_Receipt);
-            DGV_Receipt_List.DataSource = table_Receipt;
+            table.Clear();
+            adapter.Fill(table);
+            DGV_Receipt_List.DataSource = table;
         }
 
         private void TimeElapsed(object sender, ElapsedEventArgs e)
@@ -178,7 +178,5 @@ namespace Srouce_code.View
             };
             DGV_Receipt_List.Columns.Add(dayInColumn);
         }
-
-
     }
 }

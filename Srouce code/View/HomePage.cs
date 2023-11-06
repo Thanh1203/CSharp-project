@@ -61,5 +61,12 @@ namespace Srouce_code.View
             XuatHang xuatHang = new XuatHang();
             xuatHang.Show();
         }
+
+        private void Btn_Customer__Information_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyKhachHang quanLyKhachHang = new QuanLyKhachHang();
+            quanLyKhachHang.Show();
+        }
     }
 }

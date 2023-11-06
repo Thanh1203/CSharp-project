@@ -99,7 +99,6 @@ namespace Srouce_code.View
             {
                 MessageBox.Show("Vui lòng điền mã sản phẩm");
             }
-
         }
 
         private void Btn_Delete_Click(object sender, EventArgs e)
@@ -223,6 +222,16 @@ namespace Srouce_code.View
                 }
             }
             return false;
+        }
+
+        private void DGV_Product_Information_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = DGV_Product_Information.CurrentRow.Index;
+            Txt_IdProduct.Text = DGV_Product_Information.Rows[i].Cells[0].Value.ToString();
+            Txt_NameProduct.Text = DGV_Product_Information.Rows[i].Cells[1].Value.ToString();
+            Txt_KindOfProduct.Text = DGV_Product_Information.Rows[i].Cells[2].Value.ToString();
+            Txt_ColorOfProduct.Text = DGV_Product_Information.Rows[i].Cells[3].Value.ToString();
+            txt_Price.Text = DGV_Product_Information.Rows[i].Cells[4].Value.ToString();
         }
     }
 }

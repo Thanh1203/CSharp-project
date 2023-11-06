@@ -20,18 +20,19 @@ END
 
 DROP PROCEDURE IF EXISTS UpdateProduct;
 
-UPDATE ProductsInfomation
-SET VolumeOfProduct = 100
-WHERE IdProduct = 1
+CREATE PROCEDURE UpdateCustomer
+	@CustomerPhoneNumber VARCHAR(50),
+    @CustomerName NVARCHAR(MAX) = null,
+    @CustomerAddress NVARCHAR(MAX) = null,
+    @CustomerPurchases INT = 0
+AS
+BEGIN
+    UPDATE CustomerInformation
+    SET
+        CustomerName = CASE WHEN @CustomerName = '' THEN @CustomerName ELSE @CustomerName END,
+        CustomerAddress = CASE WHEN @CustomerAddress = '' THEN @CustomerAddress ELSE @CustomerAddress END,
+		CustomerPurchases = CASE WHEN @CustomerPurchases = '' THEN @CustomerPurchases ELSE @CustomerPurchases END
+    WHERE CustomerPhoneNumber = @CustomerPhoneNumber;
+END
 
--- Loại bỏ tính năng "Allow Null" cho cột "ColumnName"
-ALTER TABLE ProductsInfomation
-add ProductPrice float default 0
-
-select VolumeOfProduct from ProductsInfomation where IdProduct = 1
-
-ALTER TABLE BillInformation
-ALTER COLUMN IdBill VARCHAR(255) not null;
-
-ALTER TABLE DataBill
-ALTER COLUMN IdBill VARCHAR(255) not null;
+DROP PROCEDURE IF EXISTS UpdateCustomer;

@@ -116,7 +116,7 @@
             this.Txt_IdProduct.Location = new System.Drawing.Point(20, 87);
             this.Txt_IdProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_IdProduct.Name = "Txt_IdProduct";
-            this.Txt_IdProduct.Size = new System.Drawing.Size(245, 29);
+            this.Txt_IdProduct.Size = new System.Drawing.Size(335, 29);
             this.Txt_IdProduct.TabIndex = 5;
             // 
             // Txt_NameProduct
@@ -125,7 +125,7 @@
             this.Txt_NameProduct.Location = new System.Drawing.Point(20, 165);
             this.Txt_NameProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_NameProduct.Name = "Txt_NameProduct";
-            this.Txt_NameProduct.Size = new System.Drawing.Size(245, 29);
+            this.Txt_NameProduct.Size = new System.Drawing.Size(335, 29);
             this.Txt_NameProduct.TabIndex = 6;
             // 
             // Txt_KindOfProduct
@@ -134,7 +134,7 @@
             this.Txt_KindOfProduct.Location = new System.Drawing.Point(20, 243);
             this.Txt_KindOfProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_KindOfProduct.Name = "Txt_KindOfProduct";
-            this.Txt_KindOfProduct.Size = new System.Drawing.Size(245, 29);
+            this.Txt_KindOfProduct.Size = new System.Drawing.Size(335, 29);
             this.Txt_KindOfProduct.TabIndex = 7;
             // 
             // Txt_ColorOfProduct
@@ -143,7 +143,7 @@
             this.Txt_ColorOfProduct.Location = new System.Drawing.Point(20, 321);
             this.Txt_ColorOfProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_ColorOfProduct.Name = "Txt_ColorOfProduct";
-            this.Txt_ColorOfProduct.Size = new System.Drawing.Size(245, 29);
+            this.Txt_ColorOfProduct.Size = new System.Drawing.Size(335, 29);
             this.Txt_ColorOfProduct.TabIndex = 8;
             // 
             // Btn_out
@@ -177,6 +177,7 @@
             this.DGV_Product_Information.RowTemplate.Height = 28;
             this.DGV_Product_Information.Size = new System.Drawing.Size(1014, 594);
             this.DGV_Product_Information.TabIndex = 14;
+            this.DGV_Product_Information.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Product_Information_CellContentClick);
             // 
             // Btn_Insert
             // 
@@ -264,7 +265,7 @@
             this.txt_Price.Location = new System.Drawing.Point(20, 399);
             this.txt_Price.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Price.Name = "txt_Price";
-            this.txt_Price.Size = new System.Drawing.Size(245, 29);
+            this.txt_Price.Size = new System.Drawing.Size(335, 29);
             this.txt_Price.TabIndex = 21;
             // 
             // label6

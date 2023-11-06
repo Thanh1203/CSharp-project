@@ -20,6 +20,7 @@ namespace Srouce_code.View
         private static readonly DbConnecting DbConnect = new DbConnecting();
         private SqlConnection conn;
         private SqlCommand cmd;
+        private readonly SqlDataAdapter adapter = new SqlDataAdapter();
         private readonly System.Timers.Timer timer;
         private readonly System.Timers.Timer timer2;
         private SqlDataReader reader;
@@ -61,8 +62,7 @@ namespace Srouce_code.View
             timer.Start();
         }
 
-
-        private void txtKhoiLuong_TextChanged(object sender, EventArgs e)
+        private void TxtKhoiLuong_TextChanged(object sender, EventArgs e)
         {
             timer2.Stop();
             timer2.Start();
@@ -70,14 +70,14 @@ namespace Srouce_code.View
 
         private void BtnXuatHang_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtMaSP.Text) && !string.IsNullOrWhiteSpace(txtKhoiLuong.Text))
+            if (!string.IsNullOrWhiteSpace(txtMaSP.Text) && !string.IsNullOrWhiteSpace(TxtKhoiLuong.Text))
             {
                 double price = 0;
 
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dgvHoadon);
                 row.Cells[0].Value = txtMaSP.Text;
-                row.Cells[1].Value = double.Parse(txtKhoiLuong.Text);
+                row.Cells[1].Value = double.Parse(TxtKhoiLuong.Text);
 
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
@@ -87,7 +87,7 @@ namespace Srouce_code.View
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        double value = reader.GetDouble(0) * double.Parse(txtKhoiLuong.Text);
+                        double value = reader.GetDouble(0) * double.Parse(TxtKhoiLuong.Text);
                         row.Cells[2].Value = value.ToString();
                         price += value;
                     }
@@ -97,7 +97,7 @@ namespace Srouce_code.View
 
                 dgvHoadon.Rows.Add(row);
                 txtMaSP.Text = "";
-                txtKhoiLuong.Text = "";
+                TxtKhoiLuong.Text = "";
             } else
             {
                 BtnXuatHang.Enabled = false;
@@ -116,7 +116,7 @@ namespace Srouce_code.View
             }
         }
 
-        private void btnLamMoi_Click(object sender, EventArgs e)
+        private void BtnLamMoi_Click(object sender, EventArgs e)
         {
             EmtyLabelAndText();
         }
@@ -180,7 +180,7 @@ namespace Srouce_code.View
 
         private void TimeElapsed2(object sender, ElapsedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtMaSP.Text) && !string.IsNullOrWhiteSpace(txtKhoiLuong.Text))
+            if (!string.IsNullOrWhiteSpace(txtMaSP.Text) && !string.IsNullOrWhiteSpace(TxtKhoiLuong.Text))
             {
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
@@ -190,7 +190,7 @@ namespace Srouce_code.View
                 {
                     if (reader.Read())
                     {
-                        if (reader.GetDouble(0) < double.Parse(txtKhoiLuong.Text))
+                        if (reader.GetDouble(0) < double.Parse(TxtKhoiLuong.Text))
                         {
                             lb_message2.Invoke(new Action(() => lb_message2.Text = "Lượng hàng trong kho không đủ"));
                             lb_message2.ForeColor = Color.Red;
@@ -266,10 +266,11 @@ namespace Srouce_code.View
                     cmd.Parameters.AddWithValue("@IdProduct", idProduct);
                     cmd.Parameters.AddWithValue("@Weight", weight);
                     cmd.Parameters.AddWithValue("@VolumeOfProduct", weight);
+                    cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text);
                     cmd.CommandText = "INSERT INTO DataBill (IdBill, IdProduct, Weight) VALUES (@IdBill, @IdProduct, @Weight)";
                     cmd.CommandText = "update ProductsInfomation set VolumeOfProduct -= @VolumeOfProduct Where IdProduct = @IdProduct";
+                    cmd.CommandText = "update CustomerInformation set CustomerPurchases += 1 where CustomerPhoneNumber = @CustomerPhoneNumber";
                     cmd.ExecuteNonQuery();
-
                 }
             }
 
@@ -299,7 +300,7 @@ namespace Srouce_code.View
             txtTenKH.Text = "";
             Txt_Address.Text = "";
             txtMaSP.Text = "";
-            txtKhoiLuong.Text = "";
+            TxtKhoiLuong.Text = "";
             lb_message.Invoke(new Action(() => lb_message.Text = ""));
             lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
             lb_message3.Invoke(new Action(() => lb_message3.Text = ""));
