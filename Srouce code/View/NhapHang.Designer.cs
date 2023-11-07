@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_message = new System.Windows.Forms.Label();
+            this.BtnLamMoi = new System.Windows.Forms.Button();
             this.lbAdminid = new System.Windows.Forms.Label();
             this.Btn_Insert_Receipt = new System.Windows.Forms.Button();
             this.dateTimeNgayNhap = new System.Windows.Forms.DateTimePicker();
@@ -40,7 +41,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnLamMoi = new System.Windows.Forms.Button();
             this.Btn_out = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DGV_Receipt_List = new System.Windows.Forms.DataGridView();
@@ -97,7 +97,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(462, 281);
+            this.groupBox1.Size = new System.Drawing.Size(462, 357);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu nhập";
@@ -112,6 +112,22 @@
             this.lb_message.Size = new System.Drawing.Size(64, 16);
             this.lb_message.TabIndex = 17;
             this.lb_message.Text = "message";
+            // 
+            // BtnLamMoi
+            // 
+            this.BtnLamMoi.BackColor = System.Drawing.Color.LightSlateGray;
+            this.BtnLamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLamMoi.ForeColor = System.Drawing.Color.White;
+            this.BtnLamMoi.Location = new System.Drawing.Point(339, 318);
+            this.BtnLamMoi.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnLamMoi.Name = "BtnLamMoi";
+            this.BtnLamMoi.Size = new System.Drawing.Size(119, 35);
+            this.BtnLamMoi.TabIndex = 3;
+            this.BtnLamMoi.Text = "Làm mới";
+            this.BtnLamMoi.UseVisualStyleBackColor = false;
+            this.BtnLamMoi.Click += new System.EventHandler(this.BtnLamMoi_Click);
             // 
             // lbAdminid
             // 
@@ -132,7 +148,7 @@
             this.Btn_Insert_Receipt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Insert_Receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Insert_Receipt.ForeColor = System.Drawing.Color.White;
-            this.Btn_Insert_Receipt.Location = new System.Drawing.Point(4, 242);
+            this.Btn_Insert_Receipt.Location = new System.Drawing.Point(9, 318);
             this.Btn_Insert_Receipt.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Insert_Receipt.Name = "Btn_Insert_Receipt";
             this.Btn_Insert_Receipt.Size = new System.Drawing.Size(185, 35);
@@ -217,22 +233,6 @@
             this.label3.Size = new System.Drawing.Size(154, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Mã nhân viên";
-            // 
-            // BtnLamMoi
-            // 
-            this.BtnLamMoi.BackColor = System.Drawing.Color.LightSlateGray;
-            this.BtnLamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.BtnLamMoi.Location = new System.Drawing.Point(339, 242);
-            this.BtnLamMoi.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnLamMoi.Name = "BtnLamMoi";
-            this.BtnLamMoi.Size = new System.Drawing.Size(119, 35);
-            this.BtnLamMoi.TabIndex = 3;
-            this.BtnLamMoi.Text = "Làm mới";
-            this.BtnLamMoi.UseVisualStyleBackColor = false;
-            this.BtnLamMoi.Click += new System.EventHandler(this.BtnLamMoi_Click);
             // 
             // Btn_out
             // 

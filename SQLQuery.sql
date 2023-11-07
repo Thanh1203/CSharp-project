@@ -29,9 +29,9 @@ AS
 BEGIN
     UPDATE CustomerInformation
     SET
-        CustomerName = CASE WHEN @CustomerName = '' THEN @CustomerName ELSE @CustomerName END,
-        CustomerAddress = CASE WHEN @CustomerAddress = '' THEN @CustomerAddress ELSE @CustomerAddress END,
-		CustomerPurchases = CASE WHEN @CustomerPurchases = '' THEN @CustomerPurchases ELSE @CustomerPurchases END
+        CustomerName = CASE WHEN @CustomerName = '' THEN CustomerName ELSE @CustomerName END,
+        CustomerAddress = CASE WHEN @CustomerAddress = '' THEN CustomerAddress ELSE @CustomerAddress END,
+		CustomerPurchases = CASE WHEN @CustomerPurchases = '' THEN CustomerPurchases ELSE @CustomerPurchases END
     WHERE CustomerPhoneNumber = @CustomerPhoneNumber;
 END
 

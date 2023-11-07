@@ -23,7 +23,6 @@ namespace Srouce_code.View
         private SqlDataAdapter adapter = new SqlDataAdapter();
         private readonly DataTable table = new DataTable();
         private readonly System.Timers.Timer timer;
-        private readonly System.Timers.Timer timer2;
         private SqlDataReader reader;
 
         public QuanLyKhachHang()
@@ -53,6 +52,11 @@ namespace Srouce_code.View
             Btn_DeleteCustomer.Enabled = false;
             Btn_Update.Visible = true;
             Btn_Update.Enabled = true;
+
+            lb_Fullname.Visible = true;
+            lb_Address.Visible = true;
+            Txt_CustomerName.Visible = true;
+            Txt_CustomerAddress.Visible = true;
         }
 
         private void MenuDeleteCustomer_Click(object sender, EventArgs e)
@@ -61,6 +65,11 @@ namespace Srouce_code.View
             Btn_Update.Enabled = false;
             Btn_DeleteCustomer.Visible = true;
             Btn_DeleteCustomer.Enabled = true;
+
+            lb_Fullname.Visible = false;
+            lb_Address.Visible = false;
+            Txt_CustomerName.Visible = false;
+            Txt_CustomerAddress.Visible = false;
         }
 
         private void Txt_PhoneNumber_TextChanged(object sender, EventArgs e)
@@ -91,24 +100,30 @@ namespace Srouce_code.View
             }
             else
             {
-                MessageBox.Show("Vui lòng điền mã sản phẩm");
+                MessageBox.Show("Cập nhật thất bại hãy nhập đầy đủ số điện thoại");
             }
         }
 
         private void Btn_DeleteCustomer_Click(object sender, EventArgs e)
         {
-            cmd = conn.CreateCommand();
-            cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text.Trim());
-            cmd.CommandText = "delete from CustomerInformation where CustomerPhoneNumber = @CustomerPhoneNumber";
-            using (reader = cmd.ExecuteReader())
+            if (!string.IsNullOrWhiteSpace(Txt_PhoneNumber.Text))
             {
-                if (!reader.Read())
+                cmd = conn.CreateCommand();
+                cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text.Trim());
+                cmd.CommandText = "delete from CustomerInformation where CustomerPhoneNumber = @CustomerPhoneNumber";
+                using (reader = cmd.ExecuteReader())
                 {
-                    MessageBox.Show("Xóa thất bại hãy nhập đầy đủ số điện thoại");
+                    if (!reader.Read())
+                    {
+                        MessageBox.Show("Xóa thất bại hãy nhập đầy đủ số điện thoại");
+                    }
                 }
-            }
 
-            ResetData();
+                ResetData();
+            } else
+            {
+                MessageBox.Show("Xóa thất bại hãy nhập đầy đủ số điện thoại");
+            }
         }
 
         private void Btn_ResetData_Click(object sender, EventArgs e)
@@ -240,6 +255,17 @@ namespace Srouce_code.View
             Txt_PhoneNumber.Text = Dgv_CustomerInformation.Rows[i].Cells[0].Value.ToString();
             Txt_CustomerName.Text = Dgv_CustomerInformation.Rows[i].Cells[1].Value.ToString();
             Txt_CustomerAddress.Text = Dgv_CustomerInformation.Rows[i].Cells[2].Value.ToString();
+        }
+
+        private const int CP_DISABLE_CLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle = cp.ClassStyle | CP_DISABLE_CLOSE_BUTTON;
+                return cp;
+            }
         }
     }
 }

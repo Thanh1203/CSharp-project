@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Srouce_code.DbConnect;
 using System.Data;
+using System.Drawing;
 
 namespace Srouce_code.View
 {
@@ -232,6 +233,80 @@ namespace Srouce_code.View
             Txt_KindOfProduct.Text = DGV_Product_Information.Rows[i].Cells[2].Value.ToString();
             Txt_ColorOfProduct.Text = DGV_Product_Information.Rows[i].Cells[3].Value.ToString();
             txt_Price.Text = DGV_Product_Information.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void MenuInsertProduct_Click(object sender, EventArgs e)
+        {
+            Btn_update.Enabled = false;
+            Btn_update.Visible = false;
+
+            Btn_Delete.Enabled = false;
+            Btn_Delete.Visible = false;
+
+            Btn_Insert.Enabled = true;
+            Btn_Insert.Visible = true;
+
+            lb_title.Text = "Thêm thông tin sản phẩm";
+
+            Txt_NameProduct.Visible = true;
+            Txt_KindOfProduct.Visible = true;
+            Txt_ColorOfProduct.Visible = true;
+            txt_Price.Visible = true;
+        }
+
+        private void MenuUpdateProduct_Click(object sender, EventArgs e)
+        {
+            Btn_update.Enabled = true;
+            Btn_update.Visible = true;
+
+            Btn_Delete.Enabled = false;
+            Btn_Delete.Visible = false;
+
+            Btn_Insert.Enabled = false;
+            Btn_Insert.Visible = false;
+
+            lb_title.Text = "Sửa thông tin sản phẩm";
+
+            Txt_NameProduct.Visible = true;
+            Txt_KindOfProduct.Visible = true;
+            Txt_ColorOfProduct.Visible = true;
+            txt_Price.Visible = true;
+
+        }
+
+        private void MenuDeleteProduct_Click(object sender, EventArgs e)
+        {
+            Btn_update.Enabled = false;
+            Btn_update.Visible = false;
+
+            Btn_Delete.Enabled = true;
+            Btn_Delete.Visible = true;
+
+            Btn_Insert.Enabled = false;
+            Btn_Insert.Visible = false;
+
+            lb_title.Text = "Xóa thông tin sản phẩm";
+
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+
+            Txt_NameProduct.Visible = false;
+            Txt_KindOfProduct.Visible = false;
+            Txt_ColorOfProduct.Visible = false;
+            txt_Price.Visible = false;
+        }
+
+        private const int CP_DISABLE_CLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle = cp.ClassStyle | CP_DISABLE_CLOSE_BUTTON;
+                return cp;
+            }
         }
     }
 }

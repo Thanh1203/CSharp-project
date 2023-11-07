@@ -68,5 +68,24 @@ namespace Srouce_code.View
             QuanLyKhachHang quanLyKhachHang = new QuanLyKhachHang();
             quanLyKhachHang.Show();
         }
+
+        private void Btn_out_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DangNhap dangNhap = new DangNhap();
+            dangNhap.Show();
+            AdminInfor.AdminID = 0;
+        }
+
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
     }
 }
