@@ -77,6 +77,20 @@ namespace Srouce_code.View
             AdminInfor.AdminID = 0;
         }
 
+        private void Btn_QuanLyKhoHang_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyKho quanLyKho = new QuanLyKho();
+            quanLyKho.Show();
+        }
+
+        private void Btn_QuanlyDoanhThu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            QuanLyDoanhThu quanlydoanhthu = new QuanLyDoanhThu();
+            quanlydoanhthu.Show();
+        }
+
         private const int WS_SYSMENU = 0x80000;
         protected override CreateParams CreateParams
         {

@@ -70,11 +70,23 @@
     <Compile Include="View\NhapHang.Designer.cs">
       <DependentUpon>NhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\QuanLyDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLyDoanhThu.Designer.cs">
+      <DependentUpon>QuanLyDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QuanLyKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\QuanLyKhachHang.Designer.cs">
       <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuanLyKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLyKho.Designer.cs">
+      <DependentUpon>QuanLyKho.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ThongTinSanPham.cs">
       <SubType>Form</SubType>
@@ -111,8 +123,14 @@
     <EmbeddedResource Include="View\NhapHang.resx">
       <DependentUpon>NhapHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLyDoanhThu.resx">
+      <DependentUpon>QuanLyDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\QuanLyKhachHang.resx">
       <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLyKho.resx">
+      <DependentUpon>QuanLyKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ThongTinSanPham.resx">
       <DependentUpon>ThongTinSanPham.cs</DependentUpon>

@@ -1,8 +1,4 @@
-﻿using Srouce_code.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Srouce_code

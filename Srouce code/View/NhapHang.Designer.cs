@@ -357,9 +357,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(237, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(113, 20);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Chủng loại";
+            this.label6.Text = "Loại sản phẩm";
             // 
             // label5
             // 

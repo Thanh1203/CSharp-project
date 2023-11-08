@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Srouce_code.DbConnect;
 using System.Data;
-using System.Drawing;
 
 namespace Srouce_code.View
 {
@@ -24,6 +23,8 @@ namespace Srouce_code.View
         {
             DbConnect.OpenConnect();
             conn = DbConnect.GetConnection();
+
+            DGV_Product_Information.RowTemplate.Height = 50;
             DataGridViewTextBoxColumn idProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Mã sản phẩm",
@@ -40,7 +41,7 @@ namespace Srouce_code.View
 
             DataGridViewTextBoxColumn kindOfProductColumn = new DataGridViewTextBoxColumn
             {
-                HeaderText = "Chủng loại",
+                HeaderText = "Loại sản phẩm",
                 DataPropertyName = "KindOfProduct",
             };
             DGV_Product_Information.Columns.Add(kindOfProductColumn);
@@ -51,6 +52,7 @@ namespace Srouce_code.View
                 DataPropertyName = "ColorOfProduct",
             };
             DGV_Product_Information.Columns.Add(colorOfProductColumn);
+
             LoadData();   
         }
 

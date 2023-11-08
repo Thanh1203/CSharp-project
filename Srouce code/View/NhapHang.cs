@@ -35,10 +35,10 @@ namespace Srouce_code.View
 
             lbAdminid.Text = AdminInfor.AdminID.ToString();
             lb_message.Invoke(new Action(() => lb_message.Text = ""));
+            DGV_Receipt_List.RowTemplate.Height = 50;
+
             EmtyLabel();
-
             ColumnRecipt();
-
             LoadData();
         }
         private void Txt_MaSp_TextChanged(object sender, EventArgs e)
@@ -55,11 +55,11 @@ namespace Srouce_code.View
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
                 cmd.Parameters.AddWithValue("@VolumeOfProduct", float.Parse(Txt_Volume.Text.Trim()));
                 cmd.CommandText = "update ProductsInfomation set VolumeOfProduct += @VolumeOfProduct Where IdProduct = @IdProduct";
-                cmd.ExecuteNonQuery();
 
                 cmd.Parameters.AddWithValue("@AdminId", int.Parse(lbAdminid.Text));
                 cmd.Parameters.AddWithValue("@DayIn", dateTimeNgayNhap.Value);
                 cmd.CommandText = "insert into Receipt (Adminid, IdProduct, VolumeOfProduct, DayIn) values (@AdminId, @IdProduct, @VolumeOfProduct, @DayIn)";
+
                 cmd.ExecuteNonQuery();
 
                 EmtyLabel();

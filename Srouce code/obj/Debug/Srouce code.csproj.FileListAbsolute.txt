@@ -54,3 +54,5 @@ D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce code.csproj.Cop
 D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce code.exe
 D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce code.pdb
 D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.HomePage.resources
+D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyDoanhThu.resources
+D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyKho.resources

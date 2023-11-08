@@ -43,6 +43,8 @@
             this.Btn_goInformationProduct = new System.Windows.Forms.Button();
             this.Btn_Customer__Information = new System.Windows.Forms.Button();
             this.Btn_out = new System.Windows.Forms.Button();
+            this.Btn_QuanlyDoanhThu = new System.Windows.Forms.Button();
+            this.Btn_QuanLyKhoHang = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,11 +56,11 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 170;
-            this.iconPictureBox1.Location = new System.Drawing.Point(91, 19);
+            this.iconPictureBox1.IconSize = 137;
+            this.iconPictureBox1.Location = new System.Drawing.Point(91, 52);
             this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(180, 170);
+            this.iconPictureBox1.Size = new System.Drawing.Size(137, 137);
             this.iconPictureBox1.TabIndex = 0;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -206,7 +208,7 @@
             this.Btn_goInformationProduct.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_goInformationProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_goInformationProduct.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_goInformationProduct.Location = new System.Drawing.Point(453, 145);
+            this.Btn_goInformationProduct.Location = new System.Drawing.Point(453, 136);
             this.Btn_goInformationProduct.Name = "Btn_goInformationProduct";
             this.Btn_goInformationProduct.Size = new System.Drawing.Size(268, 38);
             this.Btn_goInformationProduct.TabIndex = 12;
@@ -220,7 +222,7 @@
             this.Btn_Customer__Information.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_Customer__Information.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Customer__Information.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Customer__Information.Location = new System.Drawing.Point(453, 222);
+            this.Btn_Customer__Information.Location = new System.Drawing.Point(453, 204);
             this.Btn_Customer__Information.Name = "Btn_Customer__Information";
             this.Btn_Customer__Information.Size = new System.Drawing.Size(268, 38);
             this.Btn_Customer__Information.TabIndex = 13;
@@ -245,11 +247,41 @@
             this.Btn_out.UseVisualStyleBackColor = false;
             this.Btn_out.Click += new System.EventHandler(this.Btn_out_Click);
             // 
+            // Btn_QuanlyDoanhThu
+            // 
+            this.Btn_QuanlyDoanhThu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Btn_QuanlyDoanhThu.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Btn_QuanlyDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_QuanlyDoanhThu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_QuanlyDoanhThu.Location = new System.Drawing.Point(453, 272);
+            this.Btn_QuanlyDoanhThu.Name = "Btn_QuanlyDoanhThu";
+            this.Btn_QuanlyDoanhThu.Size = new System.Drawing.Size(268, 38);
+            this.Btn_QuanlyDoanhThu.TabIndex = 16;
+            this.Btn_QuanlyDoanhThu.Text = "Quản lý doanh thu";
+            this.Btn_QuanlyDoanhThu.UseVisualStyleBackColor = false;
+            this.Btn_QuanlyDoanhThu.Click += new System.EventHandler(this.Btn_QuanlyDoanhThu_Click);
+            // 
+            // Btn_QuanLyKhoHang
+            // 
+            this.Btn_QuanLyKhoHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Btn_QuanLyKhoHang.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Btn_QuanLyKhoHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_QuanLyKhoHang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_QuanLyKhoHang.Location = new System.Drawing.Point(453, 340);
+            this.Btn_QuanLyKhoHang.Name = "Btn_QuanLyKhoHang";
+            this.Btn_QuanLyKhoHang.Size = new System.Drawing.Size(268, 38);
+            this.Btn_QuanLyKhoHang.TabIndex = 17;
+            this.Btn_QuanLyKhoHang.Text = "Quản lý kho hàng";
+            this.Btn_QuanLyKhoHang.UseVisualStyleBackColor = false;
+            this.Btn_QuanLyKhoHang.Click += new System.EventHandler(this.Btn_QuanLyKhoHang_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 461);
+            this.Controls.Add(this.Btn_QuanLyKhoHang);
+            this.Controls.Add(this.Btn_QuanlyDoanhThu);
             this.Controls.Add(this.Btn_out);
             this.Controls.Add(this.Btn_Customer__Information);
             this.Controls.Add(this.Btn_goInformationProduct);
@@ -286,5 +318,7 @@
         private System.Windows.Forms.Button Btn_goInformationProduct;
         private System.Windows.Forms.Button Btn_Customer__Information;
         private System.Windows.Forms.Button Btn_out;
+        private System.Windows.Forms.Button Btn_QuanlyDoanhThu;
+        private System.Windows.Forms.Button Btn_QuanLyKhoHang;
     }
 }

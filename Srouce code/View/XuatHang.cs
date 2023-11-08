@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using FontAwesome.Sharp;
 using Srouce_code.CommonData;
 using Srouce_code.DbConnect;
 
@@ -51,9 +44,7 @@ namespace Srouce_code.View
             lb_message.Invoke(new Action(() => lb_message.Text = ""));
             lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
             lb_totalPrice.Invoke(new Action(() => lb_totalPrice.Text = ""));
-
             Btn_Print_Bill.Enabled = false;
-
         }
 
         private void Txt_PhoneNumber_TextChanged(object sender, EventArgs e)
