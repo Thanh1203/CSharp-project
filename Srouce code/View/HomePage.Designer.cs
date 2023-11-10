@@ -45,6 +45,7 @@
             this.Btn_out = new System.Windows.Forms.Button();
             this.Btn_QuanlyDoanhThu = new System.Windows.Forms.Button();
             this.Btn_QuanLyKhoHang = new System.Windows.Forms.Button();
+            this.Btn_typeproduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -180,7 +181,7 @@
             this.Btn_Receipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_Receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Receipt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Receipt.Location = new System.Drawing.Point(453, 68);
+            this.Btn_Receipt.Location = new System.Drawing.Point(421, 117);
             this.Btn_Receipt.Name = "Btn_Receipt";
             this.Btn_Receipt.Size = new System.Drawing.Size(117, 38);
             this.Btn_Receipt.TabIndex = 10;
@@ -194,7 +195,7 @@
             this.Btn_Release.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_Release.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Release.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Release.Location = new System.Drawing.Point(604, 68);
+            this.Btn_Release.Location = new System.Drawing.Point(572, 117);
             this.Btn_Release.Name = "Btn_Release";
             this.Btn_Release.Size = new System.Drawing.Size(117, 38);
             this.Btn_Release.TabIndex = 11;
@@ -208,7 +209,7 @@
             this.Btn_goInformationProduct.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_goInformationProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_goInformationProduct.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_goInformationProduct.Location = new System.Drawing.Point(453, 136);
+            this.Btn_goInformationProduct.Location = new System.Drawing.Point(421, 169);
             this.Btn_goInformationProduct.Name = "Btn_goInformationProduct";
             this.Btn_goInformationProduct.Size = new System.Drawing.Size(268, 38);
             this.Btn_goInformationProduct.TabIndex = 12;
@@ -222,7 +223,7 @@
             this.Btn_Customer__Information.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_Customer__Information.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Customer__Information.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Customer__Information.Location = new System.Drawing.Point(453, 204);
+            this.Btn_Customer__Information.Location = new System.Drawing.Point(421, 221);
             this.Btn_Customer__Information.Name = "Btn_Customer__Information";
             this.Btn_Customer__Information.Size = new System.Drawing.Size(268, 38);
             this.Btn_Customer__Information.TabIndex = 13;
@@ -238,7 +239,7 @@
             this.Btn_out.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_out.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Btn_out.Location = new System.Drawing.Point(691, 415);
+            this.Btn_out.Location = new System.Drawing.Point(853, 415);
             this.Btn_out.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_out.Name = "Btn_out";
             this.Btn_out.Size = new System.Drawing.Size(119, 35);
@@ -253,7 +254,7 @@
             this.Btn_QuanlyDoanhThu.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_QuanlyDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_QuanlyDoanhThu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_QuanlyDoanhThu.Location = new System.Drawing.Point(453, 272);
+            this.Btn_QuanlyDoanhThu.Location = new System.Drawing.Point(421, 273);
             this.Btn_QuanlyDoanhThu.Name = "Btn_QuanlyDoanhThu";
             this.Btn_QuanlyDoanhThu.Size = new System.Drawing.Size(268, 38);
             this.Btn_QuanlyDoanhThu.TabIndex = 16;
@@ -267,7 +268,7 @@
             this.Btn_QuanLyKhoHang.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Btn_QuanLyKhoHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_QuanLyKhoHang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_QuanLyKhoHang.Location = new System.Drawing.Point(453, 340);
+            this.Btn_QuanLyKhoHang.Location = new System.Drawing.Point(704, 273);
             this.Btn_QuanLyKhoHang.Name = "Btn_QuanLyKhoHang";
             this.Btn_QuanLyKhoHang.Size = new System.Drawing.Size(268, 38);
             this.Btn_QuanLyKhoHang.TabIndex = 17;
@@ -275,11 +276,26 @@
             this.Btn_QuanLyKhoHang.UseVisualStyleBackColor = false;
             this.Btn_QuanLyKhoHang.Click += new System.EventHandler(this.Btn_QuanLyKhoHang_Click);
             // 
+            // Btn_typeproduct
+            // 
+            this.Btn_typeproduct.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Btn_typeproduct.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Btn_typeproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_typeproduct.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_typeproduct.Location = new System.Drawing.Point(704, 169);
+            this.Btn_typeproduct.Name = "Btn_typeproduct";
+            this.Btn_typeproduct.Size = new System.Drawing.Size(268, 38);
+            this.Btn_typeproduct.TabIndex = 18;
+            this.Btn_typeproduct.Text = "Thông tin loại sản phẩm";
+            this.Btn_typeproduct.UseVisualStyleBackColor = false;
+            this.Btn_typeproduct.Click += new System.EventHandler(this.Btn_typeproduct_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 461);
+            this.ClientSize = new System.Drawing.Size(983, 461);
+            this.Controls.Add(this.Btn_typeproduct);
             this.Controls.Add(this.Btn_QuanLyKhoHang);
             this.Controls.Add(this.Btn_QuanlyDoanhThu);
             this.Controls.Add(this.Btn_out);
@@ -320,5 +336,6 @@
         private System.Windows.Forms.Button Btn_out;
         private System.Windows.Forms.Button Btn_QuanlyDoanhThu;
         private System.Windows.Forms.Button Btn_QuanLyKhoHang;
+        private System.Windows.Forms.Button Btn_typeproduct;
     }
 }

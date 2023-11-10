@@ -43,6 +43,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,6 +64,12 @@
     </Compile>
     <Compile Include="View\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoaiSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoaiSanPham.Designer.cs">
+      <DependentUpon>LoaiSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NhapHang.cs">
       <SubType>Form</SubType>
@@ -119,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="View\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoaiSanPham.resx">
+      <DependentUpon>LoaiSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NhapHang.resx">
       <DependentUpon>NhapHang.cs</DependentUpon>

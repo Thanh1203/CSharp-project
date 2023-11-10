@@ -13,7 +13,6 @@ namespace Srouce_code.View
         private static readonly DbConnecting DbConnect = new DbConnecting();
         private SqlConnection conn;
         private SqlCommand cmd;
-        private readonly SqlDataAdapter adapter = new SqlDataAdapter();
         private readonly System.Timers.Timer timer;
         private readonly System.Timers.Timer timer2;
         private SqlDataReader reader;
@@ -44,7 +43,6 @@ namespace Srouce_code.View
             lb_message.Invoke(new Action(() => lb_message.Text = ""));
             lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
             lb_totalPrice.Invoke(new Action(() => lb_totalPrice.Text = ""));
-            Btn_Print_Bill.Enabled = false;
         }
 
         private void Txt_PhoneNumber_TextChanged(object sender, EventArgs e)
@@ -72,7 +70,7 @@ namespace Srouce_code.View
 
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
-                cmd.CommandText = "select ProductPrice from ProductsInfomation where IdProduct = @IdProduct";
+                cmd.CommandText = "select PriceProduct from ProductInfor where IdProduct = @IdProduct";
                 using (reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -89,7 +87,8 @@ namespace Srouce_code.View
                 dgvHoadon.Rows.Add(row);
                 txtMaSP.Text = "";
                 TxtKhoiLuong.Text = "";
-            } else
+            }
+            else
             {
                 BtnXuatHang.Enabled = false;
             }
@@ -122,7 +121,8 @@ namespace Srouce_code.View
                 InsertDataBill(idBill);
                 MessageBox.Show("Xuất hóa đơn thành công");
                 EmtyLabelAndText();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Khong có");
             }
@@ -163,10 +163,7 @@ namespace Srouce_code.View
             {
                 lb_message.Invoke(new Action(() => lb_message.Text = ""));
             }
-            if (!string.IsNullOrWhiteSpace(Txt_PhoneNumber.Text) && !string.IsNullOrWhiteSpace(txtTenKH.Text) && !string.IsNullOrWhiteSpace(Txt_Address.Text))
-            {
-                Btn_Print_Bill.Enabled = true;
-            }
+
         }
 
         private void TimeElapsed2(object sender, ElapsedEventArgs e)
@@ -175,7 +172,7 @@ namespace Srouce_code.View
             {
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
-                cmd.CommandText = "select VolumeOfProduct from ProductsInfomation where IdProduct = @IdProduct";
+                cmd.CommandText = "select WeightProduct from ProductInfor where IdProduct = @IdProduct";
 
                 using (reader = cmd.ExecuteReader())
                 {
@@ -185,7 +182,8 @@ namespace Srouce_code.View
                         {
                             lb_message2.Invoke(new Action(() => lb_message2.Text = "Lượng hàng trong kho không đủ"));
                             lb_message2.ForeColor = Color.Red;
-                        } else
+                        }
+                        else
                         {
                             lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
                             BtnXuatHang.Enabled = false;
@@ -206,7 +204,7 @@ namespace Srouce_code.View
             {
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
-                cmd.CommandText = "select * from ProductsInfomation where IdProduct = @IdProduct";
+                cmd.CommandText = "select * from ProductInfor where IdProduct = @IdProduct";
 
                 using (reader = cmd.ExecuteReader())
                 {
@@ -250,19 +248,20 @@ namespace Srouce_code.View
 
                 int idProduct = int.Parse(row.Cells["IdProduct"].Value.ToString());
                 double weight = double.Parse(row.Cells["WeightProduct"].Value.ToString());
+                cmd = conn.CreateCommand();
+                cmd.Parameters.AddWithValue("@IdBill", idBill);
+                cmd.Parameters.AddWithValue("@IdProduct", idProduct);
+                cmd.Parameters.AddWithValue("@Weight", weight);
+                cmd.Parameters.AddWithValue("@WeightProduct", weight);
+                cmd.CommandText = "INSERT INTO DataBill (IdBill, IdProduct, Weight) VALUES (@IdBill, @IdProduct, @Weight)";
+                cmd.ExecuteNonQuery();
 
-                using (SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.Parameters.AddWithValue("@IdBill", idBill);
-                    cmd.Parameters.AddWithValue("@IdProduct", idProduct);
-                    cmd.Parameters.AddWithValue("@Weight", weight);
-                    cmd.Parameters.AddWithValue("@VolumeOfProduct", weight);
-                    cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text);
-                    cmd.CommandText = "INSERT INTO DataBill (IdBill, IdProduct, Weight) VALUES (@IdBill, @IdProduct, @Weight)";
-                    cmd.CommandText = "update ProductsInfomation set VolumeOfProduct -= @VolumeOfProduct Where IdProduct = @IdProduct";
-                    cmd.CommandText = "update CustomerInformation set CustomerPurchases += 1 where CustomerPhoneNumber = @CustomerPhoneNumber";
-                    cmd.ExecuteNonQuery();
-                }
+                cmd.CommandText = "update ProductInfor set WeightProduct -= @WeightProduct Where IdProduct = @IdProduct";
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text);
+                cmd.CommandText = "update CustomerInformation set CustomerPurchases += 1 where CustomerPhoneNumber = @CustomerPhoneNumber";
+                cmd.ExecuteNonQuery();
             }
 
         }

@@ -54,7 +54,7 @@ namespace Srouce_code.View
         public void LoadData()
         {
             cmd = conn.CreateCommand();
-            cmd.CommandText = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, VolumeOfProduct from ProductsInfomation";
+            cmd.CommandText = "select IdProduct, NameProduct, TypeProduct, ColorProduct, WeightProduct from ProductInfor";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
@@ -77,33 +77,33 @@ namespace Srouce_code.View
             };
             DGV_ProductsContant.Columns.Add(nameProductColumn);
 
-            DataGridViewTextBoxColumn kindOfProductColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn TypeProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Loại sản phẩm",
-                DataPropertyName = "KindOfProduct",
+                DataPropertyName = "TypeProduct",
             };
-            DGV_ProductsContant.Columns.Add(kindOfProductColumn);
+            DGV_ProductsContant.Columns.Add(TypeProductColumn);
 
-            DataGridViewTextBoxColumn colorOfProductColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn ColorProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Màu sắc",
-                DataPropertyName = "ColorOfProduct",
+                DataPropertyName = "ColorProduct",
             };
-            DGV_ProductsContant.Columns.Add(colorOfProductColumn);
+            DGV_ProductsContant.Columns.Add(ColorProductColumn);
 
-            DataGridViewTextBoxColumn VolumeOfProductColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn WeightProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Khối lượng",
-                DataPropertyName = "VolumeOfProduct",
+                DataPropertyName = "WeightProduct",
             };
-            DGV_ProductsContant.Columns.Add(VolumeOfProductColumn);
+            DGV_ProductsContant.Columns.Add(WeightProductColumn);
 
         }
 
         public void TotalWeight()
         {
             cmd = conn.CreateCommand();
-            cmd.CommandText = "select sum(VolumeOfProduct) as TotalSum from ProductsInfomation";
+            cmd.CommandText = "select sum(WeightProduct) as TotalSum from ProductInfor";
             object result = cmd.ExecuteScalar();
             lb_weight.Invoke(new Action(() => lb_weight.Text = result.ToString()));
         }
@@ -113,7 +113,7 @@ namespace Srouce_code.View
             object selectedType = CB_ProductType.SelectedItem;
             object selectedColor = CB_ProductColor.SelectedItem;
             bool checkCondition = false;
-            string queryStr = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, VolumeOfProduct from ProductsInfomation where ";
+            string queryStr = "select IdProduct, NameProduct, TypeProduct, ColorProduct, WeightProduct from ProductInfor where ";
             string totalWeightQueryStr = "";
             cmd = conn.CreateCommand();
 
@@ -125,24 +125,24 @@ namespace Srouce_code.View
 
             if (selectedType != null)
             {
-                cmd.Parameters.AddWithValue("@KindOfProduct", selectedType.ToString());
-                queryStr += "@KindOfProduct = KindOfProduct";
-                totalWeightQueryStr += "@KindOfProduct = KindOfProduct";
+                cmd.Parameters.AddWithValue("@TypeProduct", selectedType.ToString());
+                queryStr += "@TypeProduct = TypeProduct";
+                totalWeightQueryStr += "@TypeProduct = TypeProduct";
                 checkCondition = true;
             }
 
             if (selectedColor != null)
             {
-                if (checkCondition) 
+                if (checkCondition)
                 {
                     queryStr += " and ";
                     totalWeightQueryStr += " and ";
                 };
-                cmd.Parameters.AddWithValue("@ColorOfProduct", selectedColor.ToString());
-                queryStr += "@ColorOfProduct = ColorOfProduct";
-                totalWeightQueryStr += "@ColorOfProduct = ColorOfProduct";
+                cmd.Parameters.AddWithValue("@ColorProduct", selectedColor.ToString());
+                queryStr += "@ColorProduct = ColorProduct";
+                totalWeightQueryStr += "@ColorProduct = ColorProduct";
             }
-            cmd.CommandText = "select sum(VolumeOfProduct) as TotalSum from ProductsInfomation where " + totalWeightQueryStr;
+            cmd.CommandText = "select sum(WeightProduct) as TotalSum from ProductInfor where " + totalWeightQueryStr;
             object result = cmd.ExecuteScalar();
             lb_weight.Invoke(new Action(() => lb_weight.Text = result.ToString()));
             cmd.CommandText = queryStr;
@@ -156,7 +156,8 @@ namespace Srouce_code.View
         {
             CB_ProductType.SelectedItem = null;
             CB_ProductColor.SelectedItem = null;
- 
+            Txt_Masp.Text = string.Empty;
+            TotalWeight();
             LoadData();
         }
 
@@ -166,11 +167,15 @@ namespace Srouce_code.View
             {
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_Masp.Text));
-                cmd.CommandText = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, VolumeOfProduct from ProductsInfomation where @IdProduct = IdProduct";
+                cmd.CommandText = "select IdProduct, NameProduct, TypeProduct, ColorProduct, WeightProduct from ProductInfor where @IdProduct = IdProduct";
                 adapter.SelectCommand = cmd;
                 table.Clear();
                 adapter.Fill(table);
                 DGV_ProductsContant.DataSource = table;
+
+                cmd.CommandText = "select WeightProduct from ProductInfor where @IdProduct = IdProduct";
+                object result = cmd.ExecuteScalar();
+                lb_weight.Invoke(new Action(() => lb_weight.Text = result.ToString()));
             }
             else
             {

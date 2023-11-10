@@ -119,9 +119,10 @@
             this.CB_ProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_ProductType.FormattingEnabled = true;
             this.CB_ProductType.Items.AddRange(new object[] {
-            "Cửa đi mở quay hệ 55",
-            "Cửa sổ mở quay hệ 55"});
-            this.CB_ProductType.Location = new System.Drawing.Point(155, 57);
+            "CDMQH55",
+            "CSMQH55",
+            "GNH55"});
+            this.CB_ProductType.Location = new System.Drawing.Point(157, 57);
             this.CB_ProductType.Name = "CB_ProductType";
             this.CB_ProductType.Size = new System.Drawing.Size(346, 28);
             this.CB_ProductType.TabIndex = 24;
@@ -140,7 +141,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(511, 59);
+            this.label5.Location = new System.Drawing.Point(515, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 24);
             this.label5.TabIndex = 26;
@@ -152,8 +153,11 @@
             this.CB_ProductColor.FormattingEnabled = true;
             this.CB_ProductColor.Items.AddRange(new object[] {
             "Trắng",
-            "Nâu cà phê"});
-            this.CB_ProductColor.Location = new System.Drawing.Point(602, 57);
+            "Nâu cà phê",
+            "Ghi xám",
+            "Đen",
+            "Vân gỗ"});
+            this.CB_ProductColor.Location = new System.Drawing.Point(608, 57);
             this.CB_ProductColor.Name = "CB_ProductColor";
             this.CB_ProductColor.Size = new System.Drawing.Size(243, 28);
             this.CB_ProductColor.TabIndex = 27;
@@ -161,11 +165,12 @@
             // Btn_FilterList
             // 
             this.Btn_FilterList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Btn_FilterList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_FilterList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_FilterList.ForeColor = System.Drawing.SystemColors.Window;
-            this.Btn_FilterList.Location = new System.Drawing.Point(855, 51);
+            this.Btn_FilterList.Location = new System.Drawing.Point(863, 54);
             this.Btn_FilterList.Name = "Btn_FilterList";
-            this.Btn_FilterList.Size = new System.Drawing.Size(180, 40);
+            this.Btn_FilterList.Size = new System.Drawing.Size(180, 34);
             this.Btn_FilterList.TabIndex = 28;
             this.Btn_FilterList.Text = "Xem danh sách";
             this.Btn_FilterList.UseVisualStyleBackColor = false;
@@ -173,13 +178,17 @@
             // 
             // Btn_Reload
             // 
-            this.Btn_Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Reload.Location = new System.Drawing.Point(1045, 51);
+            this.Btn_Reload.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Btn_Reload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Reload.ForeColor = System.Drawing.SystemColors.Window;
+            this.Btn_Reload.Location = new System.Drawing.Point(1055, 54);
+            this.Btn_Reload.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Reload.Name = "Btn_Reload";
-            this.Btn_Reload.Size = new System.Drawing.Size(120, 40);
-            this.Btn_Reload.TabIndex = 29;
+            this.Btn_Reload.Size = new System.Drawing.Size(116, 34);
+            this.Btn_Reload.TabIndex = 35;
             this.Btn_Reload.Text = "Làm mới";
-            this.Btn_Reload.UseVisualStyleBackColor = true;
+            this.Btn_Reload.UseVisualStyleBackColor = false;
             this.Btn_Reload.Click += new System.EventHandler(this.Btn_Reload_Click);
             // 
             // DGV_ProductsContant
@@ -215,7 +224,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 108);
+            this.label6.Location = new System.Drawing.Point(12, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 24);
             this.label6.TabIndex = 32;
@@ -224,7 +233,7 @@
             // Txt_Masp
             // 
             this.Txt_Masp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Masp.Location = new System.Drawing.Point(155, 108);
+            this.Txt_Masp.Location = new System.Drawing.Point(157, 106);
             this.Txt_Masp.Name = "Txt_Masp";
             this.Txt_Masp.Size = new System.Drawing.Size(346, 26);
             this.Txt_Masp.TabIndex = 33;
@@ -232,11 +241,12 @@
             // Btn_search
             // 
             this.Btn_search.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_search.ForeColor = System.Drawing.SystemColors.Window;
-            this.Btn_search.Location = new System.Drawing.Point(515, 100);
+            this.Btn_search.Location = new System.Drawing.Point(519, 102);
             this.Btn_search.Name = "Btn_search";
-            this.Btn_search.Size = new System.Drawing.Size(180, 40);
+            this.Btn_search.Size = new System.Drawing.Size(116, 34);
             this.Btn_search.TabIndex = 34;
             this.Btn_search.Text = "Tìm kiếm";
             this.Btn_search.UseVisualStyleBackColor = false;

@@ -53,18 +53,21 @@ namespace Srouce_code.View
             {
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
-                cmd.Parameters.AddWithValue("@VolumeOfProduct", float.Parse(Txt_Volume.Text.Trim()));
-                cmd.CommandText = "update ProductsInfomation set VolumeOfProduct += @VolumeOfProduct Where IdProduct = @IdProduct";
+                cmd.Parameters.AddWithValue("@WeightProduct", float.Parse(Txt_Volume.Text.Trim()));
+                cmd.CommandText = "update ProductInfor set WeightProduct += @WeightProduct Where IdProduct = @IdProduct";
+                cmd.ExecuteNonQuery();
+
 
                 cmd.Parameters.AddWithValue("@AdminId", int.Parse(lbAdminid.Text));
                 cmd.Parameters.AddWithValue("@DayIn", dateTimeNgayNhap.Value);
-                cmd.CommandText = "insert into Receipt (Adminid, IdProduct, VolumeOfProduct, DayIn) values (@AdminId, @IdProduct, @VolumeOfProduct, @DayIn)";
+                cmd.CommandText = "insert into Receipt (Adminid, IdProduct, VolumeOfProduct, DayIn) values (@AdminId, @IdProduct, @WeightProduct, @DayIn)";
 
                 cmd.ExecuteNonQuery();
 
                 EmtyLabel();
                 LoadData();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
             }
@@ -102,7 +105,7 @@ namespace Srouce_code.View
             {
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
-                cmd.CommandText = "select * from ProductsInfomation where IdProduct = @IdProduct";
+                cmd.CommandText = "select * from ProductInfor where IdProduct = @IdProduct";
 
                 using (reader = cmd.ExecuteReader())
                 {
@@ -112,9 +115,9 @@ namespace Srouce_code.View
                         lb_message.ForeColor = Color.Green;
 
                         label11.Invoke(new Action(() => label11.Text = reader.GetString(reader.GetOrdinal("NameProduct"))));
-                        label12.Invoke(new Action(() => label12.Text = reader.GetString(reader.GetOrdinal("KindOfProduct"))));
-                        label13.Invoke(new Action(() => label13.Text = reader.GetString(reader.GetOrdinal("ColorOfProduct"))));
-                        label14.Invoke(new Action(() => label14.Text = reader.GetDouble(reader.GetOrdinal("VolumeOfProduct")).ToString()));
+                        label12.Invoke(new Action(() => label12.Text = reader.GetString(reader.GetOrdinal("TypeProduct"))));
+                        label13.Invoke(new Action(() => label13.Text = reader.GetString(reader.GetOrdinal("ColorProduct"))));
+                        label14.Invoke(new Action(() => label14.Text = reader.GetDouble(reader.GetOrdinal("WeightProduct")).ToString()));
                     }
                     else
                     {
@@ -164,12 +167,12 @@ namespace Srouce_code.View
             };
             DGV_Receipt_List.Columns.Add(idProductColumn);
 
-            DataGridViewTextBoxColumn volumeOfProductColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn WeightProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Khối lượng",
                 DataPropertyName = "VolumeOfProduct",
             };
-            DGV_Receipt_List.Columns.Add(volumeOfProductColumn);
+            DGV_Receipt_List.Columns.Add(WeightProductColumn);
 
             DataGridViewTextBoxColumn dayInColumn = new DataGridViewTextBoxColumn
             {

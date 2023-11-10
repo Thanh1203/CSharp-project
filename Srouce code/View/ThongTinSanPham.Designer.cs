@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,8 +37,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Txt_IdProduct = new System.Windows.Forms.TextBox();
             this.Txt_NameProduct = new System.Windows.Forms.TextBox();
-            this.Txt_KindOfProduct = new System.Windows.Forms.TextBox();
-            this.Txt_ColorOfProduct = new System.Windows.Forms.TextBox();
+            this.Txt_TypeProduct = new System.Windows.Forms.TextBox();
+            this.Txt_ColorProduct = new System.Windows.Forms.TextBox();
             this.Btn_out = new System.Windows.Forms.Button();
             this.DGV_Product_Information = new System.Windows.Forms.DataGridView();
             this.Btn_Insert = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(641, 44);
+            this.label1.Location = new System.Drawing.Point(11, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -74,7 +75,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(11, 123);
+            this.label2.Location = new System.Drawing.Point(11, 124);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 25);
@@ -86,7 +87,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(11, 201);
+            this.label3.Location = new System.Drawing.Point(11, 202);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 25);
@@ -98,7 +99,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(11, 279);
+            this.label4.Location = new System.Drawing.Point(11, 280);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 25);
@@ -110,7 +111,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(11, 357);
+            this.label5.Location = new System.Drawing.Point(11, 358);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 25);
@@ -120,7 +121,7 @@
             // Txt_IdProduct
             // 
             this.Txt_IdProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_IdProduct.Location = new System.Drawing.Point(11, 160);
+            this.Txt_IdProduct.Location = new System.Drawing.Point(11, 161);
             this.Txt_IdProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_IdProduct.Name = "Txt_IdProduct";
             this.Txt_IdProduct.Size = new System.Drawing.Size(404, 29);
@@ -129,29 +130,29 @@
             // Txt_NameProduct
             // 
             this.Txt_NameProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_NameProduct.Location = new System.Drawing.Point(11, 238);
+            this.Txt_NameProduct.Location = new System.Drawing.Point(11, 239);
             this.Txt_NameProduct.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_NameProduct.Name = "Txt_NameProduct";
             this.Txt_NameProduct.Size = new System.Drawing.Size(404, 29);
             this.Txt_NameProduct.TabIndex = 6;
             // 
-            // Txt_KindOfProduct
+            // Txt_TypeProduct
             // 
-            this.Txt_KindOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_KindOfProduct.Location = new System.Drawing.Point(11, 316);
-            this.Txt_KindOfProduct.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_KindOfProduct.Name = "Txt_KindOfProduct";
-            this.Txt_KindOfProduct.Size = new System.Drawing.Size(404, 29);
-            this.Txt_KindOfProduct.TabIndex = 7;
+            this.Txt_TypeProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_TypeProduct.Location = new System.Drawing.Point(11, 317);
+            this.Txt_TypeProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.Txt_TypeProduct.Name = "Txt_TypeProduct";
+            this.Txt_TypeProduct.Size = new System.Drawing.Size(404, 29);
+            this.Txt_TypeProduct.TabIndex = 7;
             // 
-            // Txt_ColorOfProduct
+            // Txt_ColorProduct
             // 
-            this.Txt_ColorOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_ColorOfProduct.Location = new System.Drawing.Point(11, 394);
-            this.Txt_ColorOfProduct.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_ColorOfProduct.Name = "Txt_ColorOfProduct";
-            this.Txt_ColorOfProduct.Size = new System.Drawing.Size(404, 29);
-            this.Txt_ColorOfProduct.TabIndex = 8;
+            this.Txt_ColorProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_ColorProduct.Location = new System.Drawing.Point(11, 395);
+            this.Txt_ColorProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.Txt_ColorProduct.Name = "Txt_ColorProduct";
+            this.Txt_ColorProduct.Size = new System.Drawing.Size(404, 29);
+            this.Txt_ColorProduct.TabIndex = 8;
             // 
             // Btn_out
             // 
@@ -176,19 +177,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Product_Information.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Product_Information.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Product_Information.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_Product_Information.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Product_Information.Location = new System.Drawing.Point(473, 123);
             this.DGV_Product_Information.Margin = new System.Windows.Forms.Padding(2);
             this.DGV_Product_Information.Name = "DGV_Product_Information";
             this.DGV_Product_Information.RowHeadersWidth = 62;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGV_Product_Information.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_Product_Information.RowTemplate.Height = 28;
             this.DGV_Product_Information.Size = new System.Drawing.Size(900, 577);
             this.DGV_Product_Information.TabIndex = 14;
@@ -201,7 +204,7 @@
             this.Btn_Insert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Insert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Insert.ForeColor = System.Drawing.Color.White;
-            this.Btn_Insert.Location = new System.Drawing.Point(11, 520);
+            this.Btn_Insert.Location = new System.Drawing.Point(11, 514);
             this.Btn_Insert.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Insert.Name = "Btn_Insert";
             this.Btn_Insert.Size = new System.Drawing.Size(245, 34);
@@ -218,7 +221,7 @@
             this.Btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_update.ForeColor = System.Drawing.Color.White;
-            this.Btn_update.Location = new System.Drawing.Point(11, 520);
+            this.Btn_update.Location = new System.Drawing.Point(11, 514);
             this.Btn_update.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_update.Name = "Btn_update";
             this.Btn_update.Size = new System.Drawing.Size(245, 34);
@@ -236,7 +239,7 @@
             this.Btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Delete.ForeColor = System.Drawing.Color.White;
-            this.Btn_Delete.Location = new System.Drawing.Point(11, 520);
+            this.Btn_Delete.Location = new System.Drawing.Point(11, 514);
             this.Btn_Delete.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Delete.Name = "Btn_Delete";
             this.Btn_Delete.Size = new System.Drawing.Size(245, 34);
@@ -253,7 +256,7 @@
             this.Btn_Sreach.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Sreach.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Sreach.ForeColor = System.Drawing.Color.White;
-            this.Btn_Sreach.Location = new System.Drawing.Point(303, 520);
+            this.Btn_Sreach.Location = new System.Drawing.Point(299, 514);
             this.Btn_Sreach.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Sreach.Name = "Btn_Sreach";
             this.Btn_Sreach.Size = new System.Drawing.Size(116, 34);
@@ -269,7 +272,7 @@
             this.Btn_Reload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Reload.ForeColor = System.Drawing.Color.White;
-            this.Btn_Reload.Location = new System.Drawing.Point(11, 570);
+            this.Btn_Reload.Location = new System.Drawing.Point(11, 560);
             this.Btn_Reload.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Reload.Name = "Btn_Reload";
             this.Btn_Reload.Size = new System.Drawing.Size(116, 34);
@@ -281,7 +284,7 @@
             // txt_Price
             // 
             this.txt_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Price.Location = new System.Drawing.Point(11, 472);
+            this.txt_Price.Location = new System.Drawing.Point(11, 473);
             this.txt_Price.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Price.Name = "txt_Price";
             this.txt_Price.Size = new System.Drawing.Size(404, 29);
@@ -292,7 +295,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label6.Location = new System.Drawing.Point(11, 435);
+            this.label6.Location = new System.Drawing.Point(11, 436);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 25);
@@ -345,7 +348,7 @@
             // 
             this.lb_title.AutoSize = true;
             this.lb_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_title.Location = new System.Drawing.Point(16, 76);
+            this.lb_title.Location = new System.Drawing.Point(12, 88);
             this.lb_title.Name = "lb_title";
             this.lb_title.Size = new System.Drawing.Size(161, 24);
             this.lb_title.TabIndex = 23;
@@ -367,8 +370,8 @@
             this.Controls.Add(this.Btn_Insert);
             this.Controls.Add(this.DGV_Product_Information);
             this.Controls.Add(this.Btn_out);
-            this.Controls.Add(this.Txt_ColorOfProduct);
-            this.Controls.Add(this.Txt_KindOfProduct);
+            this.Controls.Add(this.Txt_ColorProduct);
+            this.Controls.Add(this.Txt_TypeProduct);
             this.Controls.Add(this.Txt_NameProduct);
             this.Controls.Add(this.Txt_IdProduct);
             this.Controls.Add(this.label5);
@@ -400,8 +403,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Txt_IdProduct;
         private System.Windows.Forms.TextBox Txt_NameProduct;
-        private System.Windows.Forms.TextBox Txt_KindOfProduct;
-        private System.Windows.Forms.TextBox Txt_ColorOfProduct;
+        private System.Windows.Forms.TextBox Txt_TypeProduct;
+        private System.Windows.Forms.TextBox Txt_ColorProduct;
         private System.Windows.Forms.Button Btn_out;
         private System.Windows.Forms.DataGridView DGV_Product_Information;
         private System.Windows.Forms.Button Btn_Insert;

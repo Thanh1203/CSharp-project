@@ -101,5 +101,12 @@ namespace Srouce_code.View
                 return cp;
             }
         }
+
+        private void Btn_typeproduct_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoaiSanPham loaiSanPham = new LoaiSanPham();
+            loaiSanPham.Show();
+        }
     }
 }

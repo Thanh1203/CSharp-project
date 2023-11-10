@@ -39,44 +39,45 @@ namespace Srouce_code.View
             };
             DGV_Product_Information.Columns.Add(nameProductColumn);
 
-            DataGridViewTextBoxColumn kindOfProductColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn TypeProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Loại sản phẩm",
-                DataPropertyName = "KindOfProduct",
+                DataPropertyName = "TypeProduct",
             };
-            DGV_Product_Information.Columns.Add(kindOfProductColumn);
+            DGV_Product_Information.Columns.Add(TypeProductColumn);
 
-            DataGridViewTextBoxColumn colorOfProductColumn = new DataGridViewTextBoxColumn
+            DataGridViewTextBoxColumn ColorProductColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Màu sắc",
-                DataPropertyName = "ColorOfProduct",
+                DataPropertyName = "ColorProduct",
             };
-            DGV_Product_Information.Columns.Add(colorOfProductColumn);
+            DGV_Product_Information.Columns.Add(ColorProductColumn);
 
-            LoadData();   
+            LoadData();
         }
 
         private void Btn_out_Click(object sender, EventArgs e)
         {
-           this.Close();
-           HomePage homepage = new HomePage();
-           homepage.Show();
+            this.Close();
+            HomePage homepage = new HomePage();
+            homepage.Show();
         }
 
         private void Btn_Insert_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_Price.Text) && !string.IsNullOrWhiteSpace(Txt_KindOfProduct.Text) && !string.IsNullOrWhiteSpace(Txt_ColorOfProduct.Text))
+            if (!string.IsNullOrWhiteSpace(txt_Price.Text) && !string.IsNullOrWhiteSpace(Txt_TypeProduct.Text) && !string.IsNullOrWhiteSpace(Txt_ColorProduct.Text))
             {
                 cmd = conn.CreateCommand();
-                cmd.CommandText = "insert into ProductsInfomation (NameProduct, KindOfProduct, ColorOfProduct, VolumeOfProduct, ProductPrice) VALUES (@NameProduct, @KindOfProduct, @ColorOfProduct, 0, @ProductPrice)";
+                cmd.CommandText = "insert into ProductInfor (NameProduct, TypeProduct, ColorProduct, WeightProduct, PriceProduct) VALUES (@NameProduct, @TypeProduct, @ColorProduct, 0, @PriceProduct)";
                 cmd.Parameters.AddWithValue("@NameProduct", Txt_NameProduct.Text);
-                cmd.Parameters.AddWithValue("@KindOfProduct", Txt_KindOfProduct.Text);
-                cmd.Parameters.AddWithValue("@ColorOfProduct", Txt_ColorOfProduct.Text);
-                cmd.Parameters.AddWithValue("@ProductPrice", double.Parse(txt_Price.Text));
+                cmd.Parameters.AddWithValue("@TypeProduct", Txt_TypeProduct.Text);
+                cmd.Parameters.AddWithValue("@ColorProduct", Txt_ColorProduct.Text);
+                cmd.Parameters.AddWithValue("@PriceProduct", double.Parse(txt_Price.Text));
                 cmd.ExecuteNonQuery();
                 LoadData();
 
-            } else
+            }
+            else
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
             }
@@ -86,14 +87,14 @@ namespace Srouce_code.View
         {
             if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text))
             {
-                using(cmd = new SqlCommand("UpdateProduct", conn))
+                using (cmd = new SqlCommand("UpdateProduct", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
                     cmd.Parameters.AddWithValue("@NameProduct", Txt_NameProduct.Text);
-                    cmd.Parameters.AddWithValue("@KindOfProduct", Txt_KindOfProduct.Text);
-                    cmd.Parameters.AddWithValue("@ColorOfProduct", Txt_ColorOfProduct.Text);
-                    cmd.Parameters.AddWithValue("@ProductPrice", double.Parse(txt_Price.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@TypeProduct", Txt_TypeProduct.Text);
+                    cmd.Parameters.AddWithValue("@ColorProduct", Txt_ColorProduct.Text);
+                    cmd.Parameters.AddWithValue("@PriceProduct", double.Parse(txt_Price.Text.Trim()));
                     cmd.ExecuteNonQuery();
                     LoadData();
                 }
@@ -109,7 +110,7 @@ namespace Srouce_code.View
             if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text))
             {
                 cmd = conn.CreateCommand();
-                cmd.CommandText = "delete from ProductsInfomation where IdProduct = @IdProduct";
+                cmd.CommandText = "delete from ProductInfor where IdProduct = @IdProduct";
                 cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
                 cmd.ExecuteNonQuery();
                 LoadData();
@@ -125,7 +126,7 @@ namespace Srouce_code.View
             if (IsAnyField())
             {
                 bool checkFieldBefore = false;
-                string strQuery = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, ProductPrice from ProductsInfomation where";
+                string strQuery = "select IdProduct, NameProduct, TypeProduct, ColorProduct, PriceProduct from ProductInfor where";
                 cmd = conn.CreateCommand();
                 if (!string.IsNullOrWhiteSpace(Txt_IdProduct.Text.Trim()))
                 {
@@ -133,7 +134,7 @@ namespace Srouce_code.View
                     checkFieldBefore = true;
                     cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_IdProduct.Text.Trim()));
                 }
-                if(!string.IsNullOrWhiteSpace(Txt_NameProduct.Text))
+                if (!string.IsNullOrWhiteSpace(Txt_NameProduct.Text))
                 {
                     if (checkFieldBefore)
                     {
@@ -146,43 +147,43 @@ namespace Srouce_code.View
                     }
                     cmd.Parameters.AddWithValue("@NameProduct", "%" + Txt_NameProduct.Text + "%");
                 }
-                if (!string.IsNullOrWhiteSpace(Txt_KindOfProduct.Text))
+                if (!string.IsNullOrWhiteSpace(Txt_TypeProduct.Text))
                 {
                     if (checkFieldBefore)
                     {
-                        strQuery += " and KindOfProduct = @KindOfProduct";
+                        strQuery += " and TypeProduct = @TypeProduct";
                     }
                     else
                     {
-                        strQuery += " KindOfProduct = @KindOfProduct";
+                        strQuery += " TypeProduct = @TypeProduct";
                         checkFieldBefore = true;
                     }
-                    cmd.Parameters.AddWithValue("@KindOfProduct", "%" + Txt_KindOfProduct.Text + "%");
+                    cmd.Parameters.AddWithValue("@TypeProduct", "%" + Txt_TypeProduct.Text + "%");
                 }
-                if (!string.IsNullOrWhiteSpace(Txt_ColorOfProduct.Text))
+                if (!string.IsNullOrWhiteSpace(Txt_ColorProduct.Text))
                 {
                     if (checkFieldBefore)
                     {
-                        strQuery += " and ColorOfProduct = @ColorOfProduct";
+                        strQuery += " and ColorProduct = @ColorProduct";
                     }
                     else
                     {
-                        strQuery += " ColorOfProduct = @ColorOfProduct";
+                        strQuery += " ColorProduct = @ColorProduct";
                         checkFieldBefore = true;
                     }
-                    cmd.Parameters.AddWithValue("@ColorOfProduct", "%" + Txt_ColorOfProduct.Text + "%");
+                    cmd.Parameters.AddWithValue("@ColorProduct", "%" + Txt_ColorProduct.Text + "%");
                 }
                 if (!string.IsNullOrWhiteSpace(txt_Price.Text.Trim()))
                 {
                     if (checkFieldBefore)
                     {
-                        strQuery += " and ProductPrice = @ProductPrice";
+                        strQuery += " and PriceProduct = @PriceProduct";
                     }
                     else
                     {
-                        strQuery += " ProductPrice = @ProductPrice";
+                        strQuery += " PriceProduct = @PriceProduct";
                     }
-                    cmd.Parameters.AddWithValue("@ProductPrice", "%" + double.Parse(txt_Price.Text.Trim()) + "%");
+                    cmd.Parameters.AddWithValue("@PriceProduct", "%" + double.Parse(txt_Price.Text.Trim()) + "%");
                 }
                 cmd.CommandText = strQuery;
                 adapter.SelectCommand = cmd;
@@ -201,14 +202,14 @@ namespace Srouce_code.View
             LoadData();
             Txt_IdProduct.Text = string.Empty;
             Txt_NameProduct.Text = string.Empty;
-            Txt_KindOfProduct.Text = string.Empty;
-            Txt_ColorOfProduct.Text = string.Empty;
+            Txt_TypeProduct.Text = string.Empty;
+            Txt_ColorProduct.Text = string.Empty;
         }
 
         public void LoadData()
         {
             cmd = conn.CreateCommand();
-            cmd.CommandText = "select IdProduct, NameProduct, KindOfProduct, ColorOfProduct, ProductPrice from ProductsInfomation";
+            cmd.CommandText = "select IdProduct, NameProduct, TypeProduct, ColorProduct, PriceProduct from ProductInfor";
             adapter.SelectCommand = cmd;
             table.Clear();
             adapter.Fill(table);
@@ -219,7 +220,7 @@ namespace Srouce_code.View
         {
             foreach (Control control in Controls)
             {
-                if(control is TextBox textBox && !string.IsNullOrWhiteSpace(textBox.Text))
+                if (control is TextBox textBox && !string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     return true;
                 }
@@ -232,8 +233,8 @@ namespace Srouce_code.View
             int i = DGV_Product_Information.CurrentRow.Index;
             Txt_IdProduct.Text = DGV_Product_Information.Rows[i].Cells[0].Value.ToString();
             Txt_NameProduct.Text = DGV_Product_Information.Rows[i].Cells[1].Value.ToString();
-            Txt_KindOfProduct.Text = DGV_Product_Information.Rows[i].Cells[2].Value.ToString();
-            Txt_ColorOfProduct.Text = DGV_Product_Information.Rows[i].Cells[3].Value.ToString();
+            Txt_TypeProduct.Text = DGV_Product_Information.Rows[i].Cells[2].Value.ToString();
+            Txt_ColorProduct.Text = DGV_Product_Information.Rows[i].Cells[3].Value.ToString();
             txt_Price.Text = DGV_Product_Information.Rows[i].Cells[4].Value.ToString();
         }
 
@@ -251,8 +252,8 @@ namespace Srouce_code.View
             lb_title.Text = "Thêm thông tin sản phẩm";
 
             Txt_NameProduct.Visible = true;
-            Txt_KindOfProduct.Visible = true;
-            Txt_ColorOfProduct.Visible = true;
+            Txt_TypeProduct.Visible = true;
+            Txt_ColorProduct.Visible = true;
             txt_Price.Visible = true;
         }
 
@@ -270,8 +271,8 @@ namespace Srouce_code.View
             lb_title.Text = "Sửa thông tin sản phẩm";
 
             Txt_NameProduct.Visible = true;
-            Txt_KindOfProduct.Visible = true;
-            Txt_ColorOfProduct.Visible = true;
+            Txt_TypeProduct.Visible = true;
+            Txt_ColorProduct.Visible = true;
             txt_Price.Visible = true;
 
         }
@@ -295,8 +296,8 @@ namespace Srouce_code.View
             label6.Visible = false;
 
             Txt_NameProduct.Visible = false;
-            Txt_KindOfProduct.Visible = false;
-            Txt_ColorOfProduct.Visible = false;
+            Txt_TypeProduct.Visible = false;
+            Txt_ColorProduct.Visible = false;
             txt_Price.Visible = false;
         }
 

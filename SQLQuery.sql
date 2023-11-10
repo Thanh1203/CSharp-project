@@ -3,18 +3,18 @@ go
 
 CREATE PROCEDURE UpdateProduct
     @IdProduct INT,
+    @TypeProduct VARCHAR(50) = null,
     @NameProduct NVARCHAR(MAX) = null,
-    @KindOfProduct NVARCHAR(MAX) = null,
-    @ColorOfProduct NVARCHAR(50) = null,
-	@ProductPrice float = 0
+    @ColorProduct NVARCHAR(50) = null,
+	@PriceProduct float = 0
 AS
 BEGIN
-    UPDATE ProductsInfomation
+    UPDATE ProductInfor
     SET
         NameProduct = CASE WHEN @NameProduct = '' THEN NameProduct ELSE @NameProduct END,
-        KindOfProduct = CASE WHEN @KindOfProduct = '' THEN KindOfProduct ELSE @KindOfProduct END,
-        ColorOfProduct = CASE WHEN @ColorOfProduct = '' THEN ColorOfProduct ELSE @ColorOfProduct END,
-		ProductPrice = CASE WHEN @ProductPrice = '' THEN @ProductPrice ELSE @ProductPrice END
+        TypeProduct = CASE WHEN @TypeProduct = '' THEN TypeProduct ELSE @TypeProduct END,
+        ColorProduct = CASE WHEN @ColorProduct = '' THEN ColorProduct ELSE @ColorProduct END,
+		PriceProduct = CASE WHEN @PriceProduct = '' THEN PriceProduct ELSE @PriceProduct END
     WHERE IdProduct = @IdProduct;
 END
 
@@ -36,3 +36,17 @@ BEGIN
 END
 
 DROP PROCEDURE IF EXISTS UpdateCustomer;
+
+SELECT TOP 10 D.IdProduct, SUM(D.Weight) AS TotalWeight
+FROM BillInformation B
+JOIN DataBill D ON B.IdBill = D.IdBill
+WHERE MONTH(B.DayOut) = '11' AND YEAR(B.DayOut) = '2023'
+GROUP BY D.IdProduct
+ORDER BY TotalWeight DESC;
+
+ALTER TABLE ProductsInfomation
+ADD TypeProduct varchar(50) Null;
+
+select IdTypeProduct, NameTypeProduct
+from ProductInfor, ProductTypeInfor
+where IdTypeProduct = TypeProduct and IdProduct = 10

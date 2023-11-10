@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Srouce_code.View;
+using System;
 using System.Windows.Forms;
 
 namespace Srouce_code
@@ -13,7 +14,7 @@ namespace Srouce_code
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            Application.Run(new QuanLyDoanhThu());
         }
     }
 }
