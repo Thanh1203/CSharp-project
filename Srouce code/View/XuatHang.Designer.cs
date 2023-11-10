@@ -30,12 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lb_message3 = new System.Windows.Forms.Label();
+            this.lb_messageIdProduct = new System.Windows.Forms.Label();
             this.Bt_Delete = new System.Windows.Forms.Button();
-            this.lb_message2 = new System.Windows.Forms.Label();
+            this.lb_messageWeightProduct = new System.Windows.Forms.Label();
             this.lbAdminId = new System.Windows.Forms.Label();
             this.dtp_DayOut = new System.Windows.Forms.DateTimePicker();
-            this.txtMaSP = new System.Windows.Forms.TextBox();
+            this.Txt_MaSP = new System.Windows.Forms.TextBox();
             this.BtnXuatHang = new System.Windows.Forms.Button();
             this.TxtKhoiLuong = new System.Windows.Forms.TextBox();
             this.BtnLamMoi = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvHoadon = new System.Windows.Forms.DataGridView();
+            this.TypeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WeightProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +54,7 @@
             this.Btn_Print_Bill = new System.Windows.Forms.Button();
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lb_message = new System.Windows.Forms.Label();
+            this.lb_messageCustomer = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Txt_Address = new System.Windows.Forms.TextBox();
             this.Txt_PhoneNumber = new System.Windows.Forms.TextBox();
@@ -80,12 +81,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox1.Controls.Add(this.lb_message3);
+            this.groupBox1.Controls.Add(this.lb_messageIdProduct);
             this.groupBox1.Controls.Add(this.Bt_Delete);
-            this.groupBox1.Controls.Add(this.lb_message2);
+            this.groupBox1.Controls.Add(this.lb_messageWeightProduct);
             this.groupBox1.Controls.Add(this.lbAdminId);
             this.groupBox1.Controls.Add(this.dtp_DayOut);
-            this.groupBox1.Controls.Add(this.txtMaSP);
+            this.groupBox1.Controls.Add(this.Txt_MaSP);
             this.groupBox1.Controls.Add(this.BtnXuatHang);
             this.groupBox1.Controls.Add(this.TxtKhoiLuong);
             this.groupBox1.Controls.Add(this.BtnLamMoi);
@@ -103,15 +104,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hóa đơn";
             // 
-            // lb_message3
+            // lb_messageIdProduct
             // 
-            this.lb_message3.AutoSize = true;
-            this.lb_message3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_message3.Location = new System.Drawing.Point(489, 171);
-            this.lb_message3.Name = "lb_message3";
-            this.lb_message3.Size = new System.Drawing.Size(64, 16);
-            this.lb_message3.TabIndex = 22;
-            this.lb_message3.Text = "message";
+            this.lb_messageIdProduct.AutoSize = true;
+            this.lb_messageIdProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_messageIdProduct.Location = new System.Drawing.Point(489, 171);
+            this.lb_messageIdProduct.Name = "lb_messageIdProduct";
+            this.lb_messageIdProduct.Size = new System.Drawing.Size(64, 16);
+            this.lb_messageIdProduct.TabIndex = 22;
+            this.lb_messageIdProduct.Text = "message";
             // 
             // Bt_Delete
             // 
@@ -129,15 +130,15 @@
             this.Bt_Delete.UseVisualStyleBackColor = false;
             this.Bt_Delete.Click += new System.EventHandler(this.Bt_Delete_Click);
             // 
-            // lb_message2
+            // lb_messageWeightProduct
             // 
-            this.lb_message2.AutoSize = true;
-            this.lb_message2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_message2.Location = new System.Drawing.Point(489, 234);
-            this.lb_message2.Name = "lb_message2";
-            this.lb_message2.Size = new System.Drawing.Size(64, 16);
-            this.lb_message2.TabIndex = 20;
-            this.lb_message2.Text = "message";
+            this.lb_messageWeightProduct.AutoSize = true;
+            this.lb_messageWeightProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_messageWeightProduct.Location = new System.Drawing.Point(489, 234);
+            this.lb_messageWeightProduct.Name = "lb_messageWeightProduct";
+            this.lb_messageWeightProduct.Size = new System.Drawing.Size(64, 16);
+            this.lb_messageWeightProduct.TabIndex = 20;
+            this.lb_messageWeightProduct.Text = "message";
             // 
             // lbAdminId
             // 
@@ -160,14 +161,15 @@
             this.dtp_DayOut.Size = new System.Drawing.Size(272, 26);
             this.dtp_DayOut.TabIndex = 18;
             // 
-            // txtMaSP
+            // Txt_MaSP
             // 
-            this.txtMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSP.Location = new System.Drawing.Point(191, 162);
-            this.txtMaSP.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.Size = new System.Drawing.Size(272, 29);
-            this.txtMaSP.TabIndex = 17;
+            this.Txt_MaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_MaSP.Location = new System.Drawing.Point(191, 162);
+            this.Txt_MaSP.Margin = new System.Windows.Forms.Padding(2);
+            this.Txt_MaSP.Name = "Txt_MaSP";
+            this.Txt_MaSP.Size = new System.Drawing.Size(272, 29);
+            this.Txt_MaSP.TabIndex = 17;
+            this.Txt_MaSP.TextChanged += new System.EventHandler(this.Txt_MaSP_TextChanged);
             // 
             // BtnXuatHang
             // 
@@ -283,7 +285,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(605, 478);
+            this.groupBox3.Size = new System.Drawing.Size(1074, 478);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Hóa đơn";
@@ -297,6 +299,7 @@
             this.dgvHoadon.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvHoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoadon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TypeProduct,
             this.IdProduct,
             this.WeightProduct,
             this.TotalProduct});
@@ -305,8 +308,13 @@
             this.dgvHoadon.Name = "dgvHoadon";
             this.dgvHoadon.RowHeadersWidth = 62;
             this.dgvHoadon.RowTemplate.Height = 28;
-            this.dgvHoadon.Size = new System.Drawing.Size(597, 451);
+            this.dgvHoadon.Size = new System.Drawing.Size(1066, 451);
             this.dgvHoadon.TabIndex = 0;
+            // 
+            // TypeProduct
+            // 
+            this.TypeProduct.HeaderText = "Loại sản phẩm";
+            this.TypeProduct.Name = "TypeProduct";
             // 
             // IdProduct
             // 
@@ -348,7 +356,7 @@
             this.Btn_Print_Bill.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_Print_Bill.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Print_Bill.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Btn_Print_Bill.Location = new System.Drawing.Point(1242, 615);
+            this.Btn_Print_Bill.Location = new System.Drawing.Point(1711, 615);
             this.Btn_Print_Bill.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Print_Bill.Name = "Btn_Print_Bill";
             this.Btn_Print_Bill.Size = new System.Drawing.Size(182, 35);
@@ -369,7 +377,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox2.Controls.Add(this.lb_message);
+            this.groupBox2.Controls.Add(this.lb_messageCustomer);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.Txt_Address);
             this.groupBox2.Controls.Add(this.Txt_PhoneNumber);
@@ -385,15 +393,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin khách hàng";
             // 
-            // lb_message
+            // lb_messageCustomer
             // 
-            this.lb_message.AutoSize = true;
-            this.lb_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_message.Location = new System.Drawing.Point(588, 88);
-            this.lb_message.Name = "lb_message";
-            this.lb_message.Size = new System.Drawing.Size(64, 16);
-            this.lb_message.TabIndex = 17;
-            this.lb_message.Text = "message";
+            this.lb_messageCustomer.AutoSize = true;
+            this.lb_messageCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_messageCustomer.Location = new System.Drawing.Point(588, 88);
+            this.lb_messageCustomer.Name = "lb_messageCustomer";
+            this.lb_messageCustomer.Size = new System.Drawing.Size(64, 16);
+            this.lb_messageCustomer.TabIndex = 17;
+            this.lb_messageCustomer.Text = "message";
             // 
             // label11
             // 
@@ -458,7 +466,7 @@
             this.lb_totalPrice.AutoSize = true;
             this.lb_totalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_totalPrice.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lb_totalPrice.Location = new System.Drawing.Point(1237, 561);
+            this.lb_totalPrice.Location = new System.Drawing.Point(1706, 561);
             this.lb_totalPrice.Name = "lb_totalPrice";
             this.lb_totalPrice.Size = new System.Drawing.Size(98, 25);
             this.lb_totalPrice.TabIndex = 15;
@@ -469,7 +477,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1435, 661);
+            this.ClientSize = new System.Drawing.Size(1904, 661);
             this.Controls.Add(this.lb_totalPrice);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
@@ -507,7 +515,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtKhoiLuong;
-        private System.Windows.Forms.TextBox txtMaSP;
+        private System.Windows.Forms.TextBox Txt_MaSP;
         private System.Windows.Forms.Button BtnLamMoi;
         private System.Windows.Forms.Button BtnXuatHang;
         private System.Windows.Forms.Button Btn_out;
@@ -520,14 +528,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox Txt_Address;
         private System.Windows.Forms.Label lbAdminId;
-        private System.Windows.Forms.Label lb_message;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WeightProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalProduct;
-        private System.Windows.Forms.Label lb_message2;
+        private System.Windows.Forms.Label lb_messageCustomer;
+        private System.Windows.Forms.Label lb_messageWeightProduct;
         private System.Windows.Forms.Button Bt_Delete;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lb_totalPrice;
-        private System.Windows.Forms.Label lb_message3;
+        private System.Windows.Forms.Label lb_messageIdProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WeightProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalProduct;
     }
 }

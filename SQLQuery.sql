@@ -50,3 +50,21 @@ ADD TypeProduct varchar(50) Null;
 select IdTypeProduct, NameTypeProduct
 from ProductInfor, ProductTypeInfor
 where IdTypeProduct = TypeProduct and IdProduct = 10
+
+declare @myWeight float set @myWeight = 100
+
+SELECT  TypeProduct, IdProduct, @myWeight as MyWeight,
+    @myWeight * PriceProduct AS totalValue
+FROM
+    ProductInfor
+WHERE
+    IdProduct = '3'
+
+	WITH TopProducts AS (
+    SELECT DB.IdProduct, PIF.IdTypeProduct, SUM(DB.Weight) AS TotalWeight, ROW_NUMBER() OVER (PARTITION BY PIF.IdTypeProduct ORDER BY SUM(DB.Weight) DESC) AS RowNum
+    FROM DataBill AS DB INNER JOIN BillInformation AS BI ON DB.IdBill = BI.IdBill INNER JOIN ProductTypeInfor AS PIF ON DB.IdTypeProduct = PIF.IdTypeProduct
+    WHERE MONTH(BI.DayOut) = 11 AND YEAR(BI.DayOut) = 2023
+    GROUP BY DB.IdProduct, PIF.IdTypeProduct)
+SELECT DISTINCT TP.IdTypeProduct, PTI.NameTypeProduct
+FROM TopProducts AS TP INNER JOIN ProductTypeInfor AS PTI ON TP.IdTypeProduct = PTI.IdTypeProduct
+WHERE TP.RowNum = 1;

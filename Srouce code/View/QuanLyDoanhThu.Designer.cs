@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_out = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -45,16 +42,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lb_total = new System.Windows.Forms.Label();
             this.CB_years = new System.Windows.Forms.ComboBox();
-            this.myChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DGV_TypeProduct = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DGV_Product = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.IdTypeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameTypeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myChart)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_TypeProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,7 +73,7 @@
             this.Btn_out.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Btn_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_out.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Btn_out.Location = new System.Drawing.Point(11, 995);
+            this.Btn_out.Location = new System.Drawing.Point(11, 815);
             this.Btn_out.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_out.Name = "Btn_out";
             this.Btn_out.Size = new System.Drawing.Size(119, 35);
@@ -98,7 +91,7 @@
             this.MenuYearRevenue});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1904, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(934, 33);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -146,7 +139,7 @@
             this.Cb_list_select.FormattingEnabled = true;
             this.Cb_list_select.Location = new System.Drawing.Point(133, 137);
             this.Cb_list_select.Name = "Cb_list_select";
-            this.Cb_list_select.Size = new System.Drawing.Size(245, 32);
+            this.Cb_list_select.Size = new System.Drawing.Size(364, 32);
             this.Cb_list_select.TabIndex = 19;
             // 
             // lb_title_select
@@ -219,24 +212,8 @@
             this.CB_years.FormattingEnabled = true;
             this.CB_years.Location = new System.Drawing.Point(133, 199);
             this.CB_years.Name = "CB_years";
-            this.CB_years.Size = new System.Drawing.Size(245, 32);
+            this.CB_years.Size = new System.Drawing.Size(364, 32);
             this.CB_years.TabIndex = 36;
-            // 
-            // myChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.myChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.myChart.Legends.Add(legend2);
-            this.myChart.Location = new System.Drawing.Point(12, 367);
-            this.myChart.Name = "myChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.myChart.Series.Add(series2);
-            this.myChart.Size = new System.Drawing.Size(1069, 346);
-            this.myChart.TabIndex = 0;
-            this.myChart.Text = "chart1";
             // 
             // groupBox2
             // 
@@ -244,9 +221,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.DGV_TypeProduct);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1087, 150);
+            this.groupBox2.Location = new System.Drawing.Point(20, 355);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(395, 849);
+            this.groupBox2.Size = new System.Drawing.Size(398, 455);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Loại sản phẩm bán chạy";
@@ -258,12 +235,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_TypeProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGV_TypeProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_TypeProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdTypeProduct,
-            this.NameTypeProduct});
             this.DGV_TypeProduct.Location = new System.Drawing.Point(6, 25);
             this.DGV_TypeProduct.Name = "DGV_TypeProduct";
-            this.DGV_TypeProduct.Size = new System.Drawing.Size(383, 818);
+            this.DGV_TypeProduct.Size = new System.Drawing.Size(386, 424);
             this.DGV_TypeProduct.TabIndex = 0;
             // 
             // groupBox1
@@ -272,9 +246,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.DGV_Product);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1497, 150);
+            this.groupBox1.Location = new System.Drawing.Point(489, 355);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(395, 849);
+            this.groupBox1.Size = new System.Drawing.Size(398, 455);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sản phẩm bán chạy";
@@ -285,7 +259,7 @@
             this.DGV_Product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Product.Location = new System.Drawing.Point(6, 25);
             this.DGV_Product.Name = "DGV_Product";
-            this.DGV_Product.Size = new System.Drawing.Size(383, 818);
+            this.DGV_Product.Size = new System.Drawing.Size(383, 604);
             this.DGV_Product.TabIndex = 0;
             // 
             // label3
@@ -299,25 +273,14 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "Năm";
             // 
-            // IdTypeProduct
-            // 
-            this.IdTypeProduct.HeaderText = "Mã loại sản phẩm";
-            this.IdTypeProduct.Name = "IdTypeProduct";
-            // 
-            // NameTypeProduct
-            // 
-            this.NameTypeProduct.HeaderText = "Tên loại sản phẩm";
-            this.NameTypeProduct.Name = "NameTypeProduct";
-            // 
             // QuanLyDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(934, 861);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.myChart);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.CB_years);
             this.Controls.Add(this.lb_total);
@@ -334,11 +297,9 @@
             this.Name = "QuanLyDoanhThu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLyDoanhThu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.QuanLyDoanhThu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.myChart)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_TypeProduct)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -364,13 +325,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lb_total;
         private System.Windows.Forms.ComboBox CB_years;
-        private System.Windows.Forms.DataVisualization.Charting.Chart myChart;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView DGV_TypeProduct;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DGV_Product;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdTypeProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameTypeProduct;
     }
 }

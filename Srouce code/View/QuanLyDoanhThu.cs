@@ -22,7 +22,9 @@ namespace Srouce_code.View
         private SqlCommand cmd;
         private readonly SqlDataAdapter adapter = new SqlDataAdapter();
         private readonly DataTable table = new DataTable();
-        private SqlDataReader reader;
+        private readonly SqlDataAdapter adapter2 = new SqlDataAdapter();
+        private readonly DataTable table2 = new DataTable();
+        //private SqlDataReader reader;
         public QuanLyDoanhThu()
         {
             InitializeComponent();
@@ -49,9 +51,8 @@ namespace Srouce_code.View
                 CB_years.Items.Add(i);
             }
             lb_total.Text = "0,000 VND";
-            myChart.Series[0].Name = "Tháng";
-            //DataChart();
             ColumnProduct();
+            ColumnTypeProduct();
         }
 
         private void MenuMonthlyRevenue_Click(object sender, EventArgs e)
@@ -62,7 +63,6 @@ namespace Srouce_code.View
             Cb_list_select.Enabled = true;
             indexSelect = 0;
             CbList(indexSelect);
-            myChart.Series[0].Name = "Tháng";
         }
 
         private void MenuQuarterlyRevenue_Click(object sender, EventArgs e)
@@ -73,7 +73,6 @@ namespace Srouce_code.View
             Cb_list_select.Enabled = true;
             indexSelect = 1;
             CbList(indexSelect);
-            myChart.Series[0].Name = "Quý";
         }
 
         private void MenuYearRevenue_Click(object sender, EventArgs e)
@@ -82,7 +81,6 @@ namespace Srouce_code.View
             lb_title_select.Text = string.Empty;
             Cb_list_select.Visible = false;
             Cb_list_select.Enabled = false;
-            myChart.Series[0].Name = "Năm";
             indexSelect = 2;
         }
 
@@ -121,35 +119,22 @@ namespace Srouce_code.View
 
             if (indexSelect == 0)
             {
-                queryMonth(selectedItem, selectedYear);
+                QueryTotalValue(selectedItem, selectedYear, indexSelect);
                 TopProduct(selectedItem, selectedYear);
-                TopTypeProduct();
+                TopTypeProduct(selectedItem, selectedYear);
             }
             if (indexSelect == 1)
             {
-                MessageBox.Show("hi1");
+                QueryTotalValue(selectedItem, selectedYear, indexSelect);
+                TopProductQuarterly(selectedItem, selectedYear);
+                TopTypeProductQuarterly(selectedItem, selectedYear);
             }
             if (indexSelect == 2)
             {
-                MessageBox.Show("hi2");
+                QueryTotalValue(selectedItem, selectedYear, indexSelect);
+                TopProductYear(selectedYear);
+                TopTypeProductYear(selectedYear);
             }
-        }
-
-        private void DataChart()
-        {
-            // Tạo một ChartArea mới
-            ChartArea chartArea1 = new ChartArea("Biểu đồ Cột");
-
-            // Đặt tên trục Y và giới hạn tối đa trục Y
-            chartArea1.AxisY.Title = "Giá trị";
-            chartArea1.AxisY.Maximum = 1.2 * 5; // Giới hạn tối đa là 120% giá trị cột cao nhất (ở đây là 5)
-
-            // Gán ChartArea cho Chart
-            myChart.Series["Series1"].Points.Add(1);  // Giá trị cột 1
-            myChart.Series["Series1"].Points.Add(5);  // Giá trị cột 5
-            myChart.Series["Series1"].Points.Add(2);  // Giá trị cột 2
-            myChart.Series["Series1"].Points.Add(3);
-
         }
 
         private string CovertDataTypeMonth(object obj)
@@ -166,23 +151,47 @@ namespace Srouce_code.View
             return str;
         }
 
-        private void queryMonth(object selectedItem, object selectedYear)
+        private int CovertDataTypeQuarterly(object  obj)
+        {
+            int index = 0;
+            for (int i = 1; i <= 4; i++)
+            {
+                string strMonth = "Quý " + i;
+                if (obj.ToString() == strMonth)
+                {
+                    index = i;
+                }
+            }
+            return index;
+        }
+
+        private void QueryTotalValue(object selectedItem, object selectedYear, int index)
         {
             string StrQueryTotalValue = "select sum(TotalBill) as TotalSum from BillInformation where ";
             bool checkCondition = false;
-
-            if (selectedItem != null)
+            if (index != 2)
             {
-                cmd.Parameters.AddWithValue("@Month", CovertDataTypeMonth(selectedItem));
-                StrQueryTotalValue += "MONTH(DayOut) = @Month";
-                checkCondition = true;
+                if (selectedItem != null)
+                {
+                    if (index == 0)
+                    {
+                        cmd.Parameters.AddWithValue("@Month", CovertDataTypeMonth(selectedItem));
+                        StrQueryTotalValue += "MONTH(DayOut) = @Month";
+                        checkCondition = true;
+                    }
+                    if (index == 1)
+                    {
+                        cmd.Parameters.AddWithValue("@Quarter", CovertDataTypeQuarterly(selectedItem));
+                        StrQueryTotalValue += "DATEPART(QUARTER, DayOut) = @Quarter";
+                        checkCondition = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui Lòng Không Để Trống " + lb_title_select.Text);
+                    return;
+                }
             }
-            else
-            {
-                MessageBox.Show("Vui Lòng Không Để Trống " + lb_title_select.Text);
-                return;
-            }
-
             if (selectedYear != null)
             {
                 if (checkCondition)
@@ -211,6 +220,7 @@ namespace Srouce_code.View
                     "WHERE MONTH(B.DayOut) = @MonthParam AND YEAR(B.DayOut) = @YearParam " +
                     "GROUP BY D.IdProduct " +
                     "ORDER BY TotalWeight DESC;";
+            cmd = conn.CreateCommand();
             cmd.Parameters.AddWithValue("@MonthParam", CovertDataTypeMonth(selectedItem));
             cmd.Parameters.AddWithValue("@YearParam", selectedYear.ToString());
             cmd.CommandText = queryString;
@@ -220,28 +230,108 @@ namespace Srouce_code.View
             DGV_Product.DataSource = table;
         }
 
-        private void TopTypeProduct()
+        private void TopProductQuarterly(object selectedItem, object selectedYear)
         {
-            foreach (DataGridViewRow row in DGV_Product.Rows)
-            {
-                if (row.IsNewRow) continue;
-                int idProduct = int.Parse(row.Cells[0].Value.ToString());
-
-                cmd = conn.CreateCommand();
-                cmd.Parameters.AddWithValue("@IdProduct", idProduct);
-                cmd.CommandText = "select IdTypeProduct, NameTypeProduct from ProductInfor, ProductTypeInfor where IdTypeProduct = TypeProduct and IdProduct = @IdProduct";
-                using (reader = cmd.ExecuteReader()) {
-
-                }
-                
-                //using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                //{
-                //    adapter.Fill(table);
-                //    DGV_TypeProduct.DataSource = table;
-                //}
-            }
+            string queryString = "SELECT TOP 10 D.IdProduct, SUM(D.Weight) AS TotalWeight " +
+                    "FROM BillInformation B " +
+                    "JOIN DataBill D ON B.IdBill = D.IdBill " +
+                    "WHERE DATEPART(QUARTER, B.DayOut) = @QuarterParam AND YEAR(B.DayOut) = @YearParam " +
+                    "GROUP BY D.IdProduct " +
+                    "ORDER BY TotalWeight DESC;";
+            cmd = conn.CreateCommand();
+            cmd.Parameters.AddWithValue("@QuarterParam", CovertDataTypeQuarterly(selectedItem));
+            cmd.Parameters.AddWithValue("@YearParam", selectedYear.ToString());
+            cmd.CommandText = queryString;
+            adapter.SelectCommand = cmd;
+            table.Clear();
+            adapter.Fill(table);
+            DGV_Product.DataSource = table;
         }
 
+        private void TopProductYear(object selectedYear)
+        {
+            string queryString = "SELECT TOP 10 D.IdProduct, SUM(D.Weight) AS TotalWeight " +
+                     "FROM BillInformation B " +
+                     "JOIN DataBill D ON B.IdBill = D.IdBill " +
+                     "WHERE YEAR(B.DayOut) = @YearParam " +
+                     "GROUP BY D.IdProduct " +
+                     "ORDER BY TotalWeight DESC;";
+            cmd = conn.CreateCommand();
+            cmd.Parameters.AddWithValue("@YearParam", selectedYear.ToString());
+            cmd.CommandText = queryString;
+            adapter.SelectCommand = cmd;
+            table.Clear();
+            adapter.Fill(table);
+            DGV_Product.DataSource = table;
+        }
+
+        private void TopTypeProduct(object selectedItem, object selectedYear)
+        {
+            string queryString = "WITH TopProducts AS (" +
+            "SELECT DB.IdProduct, PIF.IdTypeProduct, SUM(DB.Weight) AS TotalWeight, ROW_NUMBER() OVER (PARTITION BY PIF.IdTypeProduct ORDER BY SUM(DB.Weight) DESC) AS RowNum " +
+            "FROM DataBill DB " +
+            "INNER JOIN BillInformation BI ON DB.IdBill = BI.IdBill " +
+            "INNER JOIN ProductTypeInfor AS PIF ON DB.IdTypeProduct = PIF.IdTypeProduct " +
+            "WHERE MONTH(BI.DayOut) = @MonthValue AND YEAR(BI.DayOut) = @YearValue " +
+            "GROUP BY DB.IdProduct, PIF.IdTypeProduct) " +
+            "SELECT DISTINCT TP.IdTypeProduct, PTI.NameTypeProduct " +
+            "FROM TopProducts AS TP INNER JOIN ProductTypeInfor AS PTI ON TP.IdTypeProduct = PTI.IdTypeProduct " +
+            "WHERE TP.RowNum = 1";
+
+            cmd = conn.CreateCommand();
+            cmd.Parameters.AddWithValue("@MonthValue", CovertDataTypeMonth(selectedItem));
+            cmd.Parameters.AddWithValue("@YearValue", selectedYear.ToString());
+            cmd.CommandText= queryString;
+            adapter2.SelectCommand = cmd;
+            table2.Clear();
+            adapter2.Fill(table2);
+            DGV_TypeProduct.DataSource = table2;
+        }
+
+        private void TopTypeProductQuarterly(object selectedItem, object selectedYear)
+        {
+            string queryString = "WITH TopProducts AS (" +
+            "SELECT DB.IdProduct, PIF.IdTypeProduct, SUM(DB.Weight) AS TotalWeight, ROW_NUMBER() OVER (PARTITION BY PIF.IdTypeProduct ORDER BY SUM(DB.Weight) DESC) AS RowNum " +
+            "FROM DataBill DB " +
+            "INNER JOIN BillInformation BI ON DB.IdBill = BI.IdBill " +
+            "INNER JOIN ProductTypeInfor AS PIF ON DB.IdTypeProduct = PIF.IdTypeProduct " +
+            "WHERE DATEPART(QUARTER, BI.DayOut) = @QuarterValue AND YEAR(BI.DayOut) = @YearValue " +
+            "GROUP BY DB.IdProduct, PIF.IdTypeProduct) " +
+            "SELECT DISTINCT TP.IdTypeProduct, PTI.NameTypeProduct " +
+            "FROM TopProducts AS TP INNER JOIN ProductTypeInfor AS PTI ON TP.IdTypeProduct = PTI.IdTypeProduct " +
+            "WHERE TP.RowNum = 1";
+
+            cmd = conn.CreateCommand();
+            cmd.Parameters.AddWithValue("@QuarterValue", CovertDataTypeQuarterly(selectedItem));
+            cmd.Parameters.AddWithValue("@YearValue", selectedYear.ToString());
+            cmd.CommandText = queryString;
+            adapter2.SelectCommand = cmd;
+            table2.Clear();
+            adapter2.Fill(table2);
+            DGV_TypeProduct.DataSource = table2;
+        }
+
+        private void TopTypeProductYear(object selectedYear)
+        {
+            string queryString = "WITH TopProducts AS (" +
+            "SELECT DB.IdProduct, PIF.IdTypeProduct, SUM(DB.Weight) AS TotalWeight, ROW_NUMBER() OVER (PARTITION BY PIF.IdTypeProduct ORDER BY SUM(DB.Weight) DESC) AS RowNum " +
+            "FROM DataBill DB " +
+            "INNER JOIN BillInformation BI ON DB.IdBill = BI.IdBill " +
+            "INNER JOIN ProductTypeInfor AS PIF ON DB.IdTypeProduct = PIF.IdTypeProduct " +
+            "WHERE YEAR(BI.DayOut) = @YearValue " +
+            "GROUP BY DB.IdProduct, PIF.IdTypeProduct) " +
+            "SELECT DISTINCT TP.IdTypeProduct, PTI.NameTypeProduct " +
+            "FROM TopProducts AS TP INNER JOIN ProductTypeInfor AS PTI ON TP.IdTypeProduct = PTI.IdTypeProduct " +
+            "WHERE TP.RowNum = 1";
+
+            cmd = conn.CreateCommand();
+            cmd.Parameters.AddWithValue("@YearValue", selectedYear.ToString());
+            cmd.CommandText = queryString;
+            adapter2.SelectCommand = cmd;
+            table2.Clear();
+            adapter2.Fill(table2);
+            DGV_TypeProduct.DataSource = table2;
+        }
         private void ColumnProduct()
         {
             DataGridViewTextBoxColumn idProductColumn = new DataGridViewTextBoxColumn
@@ -257,6 +347,24 @@ namespace Srouce_code.View
                 DataPropertyName = "TotalWeight",
             };
             DGV_Product.Columns.Add(nameProductColumn);
+        }
+
+
+        private void ColumnTypeProduct()
+        {
+            DataGridViewTextBoxColumn idProductColumn = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Mã loại sản phẩm",
+                DataPropertyName = "IdTypeProduct",
+            };
+            DGV_TypeProduct.Columns.Add(idProductColumn);
+
+            DataGridViewTextBoxColumn nameProductColumn = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Tên loại sản phẩm",
+                DataPropertyName = "NameTypeProduct",
+            };
+            DGV_TypeProduct.Columns.Add(nameProductColumn);
         }
     }
 }

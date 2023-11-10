@@ -15,7 +15,9 @@ namespace Srouce_code.View
         private SqlCommand cmd;
         private readonly System.Timers.Timer timer;
         private readonly System.Timers.Timer timer2;
+        private readonly System.Timers.Timer timer3;
         private SqlDataReader reader;
+        public double TotalPrice = 0;
 
         public XuatHang()
         {
@@ -29,9 +31,9 @@ namespace Srouce_code.View
             timer2.Elapsed += TimeElapsed2;
             timer2.AutoReset = false;
 
-            timer2 = new System.Timers.Timer(500);
-            timer2.Elapsed += TimeElapsed3;
-            timer2.AutoReset = false;
+            timer3 = new System.Timers.Timer(500);
+            timer3.Elapsed += TimeElapsed3;
+            timer3.AutoReset = false;
         }
 
         private void XuatHang_Load(object sender, EventArgs e)
@@ -40,8 +42,10 @@ namespace Srouce_code.View
             conn = DbConnect.GetConnection();
 
             lbAdminId.Text = AdminInfor.AdminID.ToString();
-            lb_message.Invoke(new Action(() => lb_message.Text = ""));
-            lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
+            lb_messageCustomer.Invoke(new Action(() => lb_messageCustomer.Text = ""));
+            lb_messageWeightProduct.Invoke(new Action(() => lb_messageWeightProduct.Text = ""));
+            lb_messageIdProduct.Invoke(new Action(() => lb_messageIdProduct.Text = ""));
+
             lb_totalPrice.Invoke(new Action(() => lb_totalPrice.Text = ""));
         }
 
@@ -57,35 +61,40 @@ namespace Srouce_code.View
             timer2.Start();
         }
 
+        private void Txt_MaSP_TextChanged(object sender, EventArgs e)
+        {
+            timer3.Stop();
+            timer3.Start();
+        }
+
         private void BtnXuatHang_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtMaSP.Text) && !string.IsNullOrWhiteSpace(TxtKhoiLuong.Text))
+            if (!string.IsNullOrWhiteSpace(Txt_MaSP.Text) && !string.IsNullOrWhiteSpace(TxtKhoiLuong.Text))
             {
-                double price = 0;
-
+                double value = 0;
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(dgvHoadon);
-                row.Cells[0].Value = txtMaSP.Text;
-                row.Cells[1].Value = double.Parse(TxtKhoiLuong.Text);
 
                 cmd = conn.CreateCommand();
-                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
-                cmd.CommandText = "select PriceProduct from ProductInfor where IdProduct = @IdProduct";
+                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_MaSP.Text.Trim()));
+                cmd.Parameters.AddWithValue("@setWeight", double.Parse(TxtKhoiLuong.Text));
+                cmd.CommandText = "DECLARE @myWeight FLOAT; SET @myWeight = @setWeight; select TypeProduct, IdProduct, @myWeight as MyWeight, @myWeight * PriceProduct AS totalValue from ProductInfor where IdProduct = @IdProduct";
                 using (reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        double value = reader.GetDouble(0) * double.Parse(TxtKhoiLuong.Text);
-                        row.Cells[2].Value = value.ToString();
-                        price += value;
+                        row.Cells[0].Value = reader.GetString(reader.GetOrdinal("TypeProduct"));
+                        row.Cells[1].Value = reader.GetInt32(reader.GetOrdinal("IdProduct"));
+                        row.Cells[2].Value = reader.GetDouble(reader.GetOrdinal("MyWeight"));
+                        row.Cells[3].Value = reader.GetDouble(reader.GetOrdinal("totalValue"));
+                        value = reader.GetDouble(reader.GetOrdinal("totalValue"));
                     }
                 }
-
-                lb_totalPrice.Invoke(new Action(() => lb_totalPrice.Text = price.ToString() + ",000 đ"));
-
+                TotalPrice += value;
                 dgvHoadon.Rows.Add(row);
-                txtMaSP.Text = "";
+                lb_totalPrice.Invoke(new Action(() => lb_totalPrice.Text = TotalPrice.ToString() + ",000 đ"));
+                Txt_MaSP.Text = "";
                 TxtKhoiLuong.Text = "";
             }
             else
@@ -99,7 +108,7 @@ namespace Srouce_code.View
         {
             foreach (DataGridViewRow row in dgvHoadon.Rows)
             {
-                if (row.Cells["IdProduct"].Value.ToString() != null && row.Cells["IdProduct"].Value.ToString() == txtMaSP.Text)
+                if (row.Cells["IdProduct"].Value.ToString() != null && row.Cells["IdProduct"].Value.ToString() == Txt_MaSP.Text)
                 {
                     dgvHoadon.Rows.Remove(row);
                 }
@@ -147,31 +156,31 @@ namespace Srouce_code.View
                 {
                     if (reader.Read())
                     {
-                        lb_message.Invoke(new Action(() => lb_message.Text = "Khác hàng đã tồn tại"));
-                        lb_message.ForeColor = Color.Green;
+                        lb_messageCustomer.Invoke(new Action(() => lb_messageCustomer.Text = "Khác hàng đã tồn tại"));
+                        lb_messageCustomer.ForeColor = Color.Green;
                         txtTenKH.Invoke(new Action(() => txtTenKH.Text = reader.GetString(reader.GetOrdinal("CustomerName"))));
                         Txt_Address.Invoke(new Action(() => Txt_Address.Text = reader.GetString(reader.GetOrdinal("CustomerAddress"))));
                     }
                     else
                     {
-                        lb_message.Invoke(new Action(() => lb_message.Text = "Khách hàng không tồn tại"));
-                        lb_message.ForeColor = Color.Red;
+                        lb_messageCustomer.Invoke(new Action(() => lb_messageCustomer.Text = "Khách hàng không tồn tại"));
+                        lb_messageCustomer.ForeColor = Color.Red;
                     }
                 }
             }
             else
             {
-                lb_message.Invoke(new Action(() => lb_message.Text = ""));
+                lb_messageCustomer.Invoke(new Action(() => lb_messageCustomer.Text = ""));
             }
 
         }
 
         private void TimeElapsed2(object sender, ElapsedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtMaSP.Text) && !string.IsNullOrWhiteSpace(TxtKhoiLuong.Text))
+            if (!string.IsNullOrWhiteSpace(Txt_MaSP.Text) && !string.IsNullOrWhiteSpace(TxtKhoiLuong.Text))
             {
                 cmd = conn.CreateCommand();
-                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
+                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_MaSP.Text.Trim()));
                 cmd.CommandText = "select WeightProduct from ProductInfor where IdProduct = @IdProduct";
 
                 using (reader = cmd.ExecuteReader())
@@ -180,62 +189,68 @@ namespace Srouce_code.View
                     {
                         if (reader.GetDouble(0) < double.Parse(TxtKhoiLuong.Text))
                         {
-                            lb_message2.Invoke(new Action(() => lb_message2.Text = "Lượng hàng trong kho không đủ"));
-                            lb_message2.ForeColor = Color.Red;
+                            lb_messageWeightProduct.Invoke(new Action(() => lb_messageWeightProduct.Text = "Lượng hàng trong kho không đủ"));
+                            lb_messageWeightProduct.ForeColor = Color.Red;
                         }
                         else
                         {
-                            lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
-                            BtnXuatHang.Enabled = false;
-                            Btn_Print_Bill.Enabled = false;
+                            lb_messageWeightProduct.Invoke(new Action(() => lb_messageWeightProduct.Text = ""));
                         }
                     }
                 }
             }
             else
             {
-                lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
+                lb_messageWeightProduct.Invoke(new Action(() => lb_messageWeightProduct.Text = ""));
             }
         }
 
         private void TimeElapsed3(object sender, ElapsedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtMaSP.Text))
+            if (!string.IsNullOrWhiteSpace(Txt_MaSP.Text))
             {
                 cmd = conn.CreateCommand();
-                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(txtMaSP.Text.Trim()));
+                cmd.Parameters.AddWithValue("@IdProduct", int.Parse(Txt_MaSP.Text.Trim()));
                 cmd.CommandText = "select * from ProductInfor where IdProduct = @IdProduct";
 
                 using (reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        lb_message3.Invoke(new Action(() => lb_message3.Text = "Mã sản phẩm hợp lệ"));
-                        lb_message3.ForeColor = Color.Green;
+                        lb_messageIdProduct.Invoke(new Action(() => lb_messageIdProduct.Text = "Mã sản phẩm hợp lệ"));
+                        lb_messageIdProduct.ForeColor = Color.Green;
                     }
                     else
                     {
-                        lb_message3.Invoke(new Action(() => lb_message3.Text = "Mã sản phẩm không tồn tại"));
-                        lb_message3.ForeColor = Color.Red;
-                        BtnXuatHang.Enabled = false;
-                        Btn_Print_Bill.Enabled = false;
+                        lb_messageIdProduct.Invoke(new Action(() => lb_messageIdProduct.Text = "Mã sản phẩm không tồn tại"));
+                        lb_messageIdProduct.ForeColor = Color.Red;
                     }
                 }
             }
             else
             {
-                lb_message3.Invoke(new Action(() => lb_message3.Text = ""));
+                lb_messageIdProduct.Invoke(new Action(() => lb_messageIdProduct.Text = ""));
             }
         }
 
         private void InsertBill(string idBill)
         {
             cmd = conn.CreateCommand();
+
+            if (lb_messageCustomer.Text == "Khách hàng không tồn tại")
+            {
+                cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text);
+                cmd.Parameters.AddWithValue("@CustomerName", txtTenKH.Text);
+                cmd.Parameters.AddWithValue("@CustomerAddress", Txt_Address.Text);
+                cmd.CommandText = "insert into CustomerInformation (CustomerPhoneNumber, CustomerName, CustomerAddress, CustomerPurchases) values (@CustomerPhoneNumber, @CustomerName, @CustomerAddress, 1)";
+                cmd.ExecuteNonQuery();
+            }
+
             cmd.Parameters.AddWithValue("@IdBill", idBill);
             cmd.Parameters.AddWithValue("@IdAdmin", AdminInfor.AdminID);
             cmd.Parameters.AddWithValue("@DayOut", dtp_DayOut.Value);
             cmd.Parameters.AddWithValue("@PnCustomer", Txt_PhoneNumber.Text);
-            cmd.Parameters.AddWithValue("@TotalBill", TotalPrice());
+            cmd.Parameters.AddWithValue("@TotalBill", TotalPrice);
             cmd.CommandText = "insert into BillInformation ( IdBill, IdAdmin, DayOut, PnCustomer, TotalBill) values (@IdBill, @IdAdmin, @DayOut, @PnCustomer, @TotalBill)";
             cmd.ExecuteNonQuery();
         }
@@ -248,39 +263,27 @@ namespace Srouce_code.View
 
                 int idProduct = int.Parse(row.Cells["IdProduct"].Value.ToString());
                 double weight = double.Parse(row.Cells["WeightProduct"].Value.ToString());
+                string typeProduct = row.Cells["TypeProduct"].Value.ToString();
                 cmd = conn.CreateCommand();
                 cmd.Parameters.AddWithValue("@IdBill", idBill);
                 cmd.Parameters.AddWithValue("@IdProduct", idProduct);
                 cmd.Parameters.AddWithValue("@Weight", weight);
                 cmd.Parameters.AddWithValue("@WeightProduct", weight);
-                cmd.CommandText = "INSERT INTO DataBill (IdBill, IdProduct, Weight) VALUES (@IdBill, @IdProduct, @Weight)";
+                cmd.Parameters.AddWithValue("@IdTypeProduct", typeProduct);
+                cmd.CommandText = "INSERT INTO DataBill ( IdTypeProduct, IdBill, IdProduct, Weight) VALUES (@IdTypeProduct, @IdBill, @IdProduct, @Weight)";
                 cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "update ProductInfor set WeightProduct -= @WeightProduct Where IdProduct = @IdProduct";
                 cmd.ExecuteNonQuery();
 
-                cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text);
-                cmd.CommandText = "update CustomerInformation set CustomerPurchases += 1 where CustomerPhoneNumber = @CustomerPhoneNumber";
-                cmd.ExecuteNonQuery();
-            }
-
-        }
-
-        private double TotalPrice()
-        {
-            double total = 0;
-            foreach (DataGridViewRow row in dgvHoadon.Rows)
-            {
-                // Kiểm tra nếu hàng không phải là hàng header và có giá trị trong cột cần tính tổng
-                if (!row.IsNewRow && row.Cells[2].Value != null)
+                if(lb_messageCustomer.Text != "Khách hàng không tồn tại")
                 {
-                    if (double.TryParse(row.Cells[2].Value.ToString(), out double cellValue))
-                    {
-                        total += cellValue;
-                    }
+                    cmd.Parameters.AddWithValue("@CustomerPhoneNumber", Txt_PhoneNumber.Text);
+                    cmd.CommandText = "update CustomerInformation set CustomerPurchases += 1 where CustomerPhoneNumber = @CustomerPhoneNumber";
+                    cmd.ExecuteNonQuery();
                 }
             }
-            return total;
+
         }
 
         private void EmtyLabelAndText()
@@ -289,11 +292,11 @@ namespace Srouce_code.View
             Txt_PhoneNumber.Text = "";
             txtTenKH.Text = "";
             Txt_Address.Text = "";
-            txtMaSP.Text = "";
+            Txt_MaSP.Text = "";
             TxtKhoiLuong.Text = "";
-            lb_message.Invoke(new Action(() => lb_message.Text = ""));
-            lb_message2.Invoke(new Action(() => lb_message2.Text = ""));
-            lb_message3.Invoke(new Action(() => lb_message3.Text = ""));
+            lb_messageCustomer.Invoke(new Action(() => lb_messageCustomer.Text = ""));
+            lb_messageWeightProduct.Invoke(new Action(() => lb_messageWeightProduct.Text = ""));
+            lb_messageIdProduct.Invoke(new Action(() => lb_messageIdProduct.Text = ""));
             lb_totalPrice.Invoke(new Action(() => lb_totalPrice.Text = "0,000 đ"));
         }
 
@@ -307,5 +310,7 @@ namespace Srouce_code.View
                 return cp;
             }
         }
+
+
     }
 }
