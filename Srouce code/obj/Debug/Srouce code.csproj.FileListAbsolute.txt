@@ -57,3 +57,26 @@ D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.HomeP
 D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyDoanhThu.resources
 D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyKho.resources
 D:\My workspace data\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.LoaiSanPham.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\bin\Debug\Srouce code.exe.config
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\bin\Debug\Srouce code.exe
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\bin\Debug\Srouce code.pdb
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\bin\Debug\Newtonsoft.Json.dll
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\bin\Debug\Newtonsoft.Json.xml
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.csproj.AssemblyReference.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.csproj.SuggestedBindingRedirects.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.Properties.Resources.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.HomePage.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.LoaiSanPham.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.NhapHang.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyDoanhThu.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyKhachHang.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.QuanLyKho.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.ThongTinSanPham.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.View.XuatHang.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce_code.DangNhap.resources
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.csproj.GenerateResource.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.csproj.CoreCompileInputs.cache
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.csproj.CopyComplete
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.exe
+C:\Users\HELLO\Desktop\báo cáo epu\CSharp-project\Srouce code\obj\Debug\Srouce code.pdb
